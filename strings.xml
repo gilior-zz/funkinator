@@ -1,0 +1,13 @@
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<resources>-->
+    <!--<string name="app_name">Your App Name here.</string>-->
+
+    <!--&lt;!&ndash; Replace "000000000000" with your Facebook App ID here. &ndash;&gt;-->
+    <!--<string name="facebook_app_id">396939231038640</string>-->
+
+    <!--&lt;!&ndash;-->
+      <!--Replace "000000000000" with your Facebook App ID here.-->
+      <!--**NOTE**: The scheme needs to start with `fb` and then your ID.-->
+    <!--&ndash;&gt;-->
+    <!--<string name="fb_login_protocol_scheme">fb396939231038640</string>-->
+<!--</resources>-->

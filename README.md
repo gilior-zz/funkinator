@@ -14,3 +14,7 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter, view our 
 [online documentation](https://flutter.io/docs), which offers tutorials, 
 samples, guidance on mobile development, and a full API reference.
+
+keytool -list -v -alias androiddebugkey -keystore %USERPROFILE%\.android\debug.keystore
+keytool -exportcert -alias androiddebugkey -keystore "%USERPROFILE%\.android\debug.keystore" | "C:\Program Files\openssl\bin\openssl" sha1 -binary | "C:\Program Files\openssl\bin\openssl" base64
+
