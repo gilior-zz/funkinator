@@ -17,16 +17,28 @@ class GoogleLoginWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return RaisedButton(
-      color: Colors.transparent,
-      elevation: 0,
+    return FlatButton(
       onPressed: () {
         _handleGoogleSignIn();
       },
-      child: const Text(
-        'Login with google',
-        style: TextStyle(fontSize: 30.0
-        ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          const Text(
+            'Login with',
+            style: TextStyle(fontSize: 30.0),
+          ),
+          const Text(' g',
+              style: TextStyle(fontSize: 30.0, color: Colors.blue)),
+          const Text(' o', style: TextStyle(fontSize: 30.0, color: Colors.red)),
+          const Text(' o',
+              style: TextStyle(fontSize: 30.0, color: Colors.yellow)),
+          const Text(' g',
+              style: TextStyle(fontSize: 30.0, color: Colors.blue)),
+          const Text(' l',
+              style: TextStyle(fontSize: 30.0, color: Colors.green)),
+          const Text(' e', style: TextStyle(fontSize: 30.0, color: Colors.red)),
+        ],
       ),
     );
   }

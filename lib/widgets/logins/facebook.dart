@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 
-class FacebookLoginWidget extends StatelessWidget{
-
+class FacebookLoginWidget extends StatelessWidget {
   void _handleFaceBookSignIn() async {
     final login = FacebookLogin();
     final FacebookLoginResult result =
-    await login.logInWithReadPermissions(['email']);
+        await login.logInWithReadPermissions(['email']);
 
     switch (result.status) {
       case FacebookLoginStatus.loggedIn:
@@ -30,18 +29,29 @@ class FacebookLoginWidget extends StatelessWidget{
         break;
     }
   }
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return  RaisedButton(
+    return FlatButton(
       onPressed: () {
         _handleFaceBookSignIn();
       },
-      child: const Text(
-        'Login with Facebook',
-        style: TextStyle(fontSize: 30.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          const Text(
+            'Login with',
+            style: TextStyle(fontSize: 30.0),
+          ),
+          Text(' '),
+          Text(' facebook ',
+              style: TextStyle(
+                  color: Colors.white,
+                  backgroundColor: Colors.blue,
+                  fontSize: 30.0))
+        ],
       ),
     );
   }
-
 }

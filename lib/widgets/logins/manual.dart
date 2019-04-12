@@ -67,26 +67,28 @@ class ManualLoginState extends State<ManualLogin> {
                     },
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 16.0),
-                  child: RaisedButton(
-                    onPressed: () {
-                      // Validate will return true if the form is valid, or false if
-                      // the form is invalid.
-                      if (_formKey.currentState.validate()) {
-                        // If the form is valid, we want to show a Snackbar
-                        Scaffold.of(context).showSnackBar(
-                            SnackBar(content: Text('Processing Data')));
-                      }
-                    },
-                    child: Text('Submit'),
+                RaisedButton(
+                  onPressed: () {
+                    // Validate will return true if the form is valid, or false if
+                    // the form is invalid.
+                    if (_formKey.currentState.validate()) {
+                      // If the form is valid, we want to show a Snackbar
+                      Scaffold.of(context).showSnackBar(
+                          SnackBar(content: Text('Processing Data')));
+                    }
+                  },
+                  child: Text('Submit'),
+                ),
+                FlatButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/signUp');
+                  },
+                  child: Text(
+                    'click here to sign up',
+                    style: TextStyle(
+                        fontSize: 15.0, decoration: TextDecoration.underline),
                   ),
                 ),
-                Text(
-                  'click here to sign up',
-                  style: TextStyle(
-                      fontSize: 15.0, decoration: TextDecoration.underline),
-                )
               ],
             ),
           ),

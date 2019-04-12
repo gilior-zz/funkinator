@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:funkinator/widgets/logins/login.dart';
 
-class LoginScreen extends StatelessWidget {
+class Login_Screen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build

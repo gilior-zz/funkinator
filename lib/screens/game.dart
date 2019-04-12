@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class Game extends StatefulWidget{
+class Game_Screen extends StatefulWidget{
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    GameState createState() => new GameState();
+    Game_ScreenState createState() => new Game_ScreenState();
   }
 }
 
-class GameState extends State<Game> {
+class Game_ScreenState extends State<Game_Screen> {
   @override void initState() {
     // TODO: implement initState
     super.initState();
