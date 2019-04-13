@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 class Game_Screen extends StatefulWidget{
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
-    Game_ScreenState createState() => new Game_ScreenState();
+    return Game_ScreenState();
   }
 }
 

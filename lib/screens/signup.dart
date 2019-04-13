@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class Signup_Screen extends StatelessWidget {
   TextEditingController mailController = TextEditingController();
   TextEditingController pwdController = TextEditingController();
   TextEditingController pwdController_2 = TextEditingController();
+  final FirebaseAuth _auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -77,12 +80,18 @@ class Signup_Screen extends StatelessWidget {
                     ),
                   ),
                   RaisedButton(
-                    onPressed: () {
+                    onPressed: () async {
                       // Validate will return true if the form is valid, or false if
                       // the form is invalid.
 
                       // If the form is valid, we want to show a Snackbar
-                      Navigator.pushNamed(context, 'game');
+                      final FirebaseUser user =
+                          await _auth.createUserWithEmailAndPassword(
+                        email: mailController.text,
+                        password: pwdController.text,
+                      );
+                      debugPrint(user.displayName);
+//                      Navigator.pushNamed(context, '/game');
                     },
                     child: Text('Submit'),
                   ),
