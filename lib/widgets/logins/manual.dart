@@ -1,5 +1,7 @@
 import 'dart:async';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:funkinator/widgets/TextInput.dart';
 
 class ManualLogin extends StatefulWidget {
   ManualLogin();
@@ -12,13 +14,20 @@ class ManualLogin extends StatefulWidget {
 
 class ManualLoginState extends State<ManualLogin> {
   final _formKey = GlobalKey<FormState>();
+  final FirebaseAuth _auth = FirebaseAuth.instance;
 
   TextEditingController mailController = TextEditingController();
   TextEditingController pwdController = TextEditingController();
   TextEditingController pwdController_2 = TextEditingController();
 
-  ManualLoginState();
+//  ManualLoginState();
+  @override void initState() {
+    // TODO: implement initState
 
+    super.initState();
+    mailController.text='aaaaa@aaa.com';
+    pwdController.text='1q2w3e';
+  }
   @override
   Widget build(BuildContext context) {
     TextStyle textStyle = Theme.of(context).textTheme.title;
@@ -32,49 +41,28 @@ class ManualLoginState extends State<ManualLogin> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: TextFormField(
-                    decoration: InputDecoration(
-                      labelText: 'Email',
-                      labelStyle: textStyle,
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                    ),
-                    controller: mailController,
-                    validator: (value) {
-                      if (value.isEmpty) {
-                        return 'Please enter some text';
-                      }
-                    },
-                  ),
-                ),
+                    padding: const EdgeInsets.all(8.0),
+                    child: TextInput(mailController, textStyle, 'Email',
+                        'Please enter some text')),
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: TextFormField(
-                    decoration: InputDecoration(
-                      labelText: 'Pasword',
-                      labelStyle: textStyle,
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                    ),
-                    controller: pwdController,
-                    validator: (value) {
-                      if (value.isEmpty) {
-                        return 'Please enter some text';
-                      }
-                    },
-                  ),
-                ),
+                    padding: const EdgeInsets.all(8.0),
+                    child: TextInput(pwdController, textStyle, 'Pasword',
+                        'Please enter some text')),
                 RaisedButton(
-                  onPressed: () {
+                  onPressed: ()async {
                     // Validate will return true if the form is valid, or false if
                     // the form is invalid.
                     if (_formKey.currentState.validate()) {
                       // If the form is valid, we want to show a Snackbar
-                      Scaffold.of(context).showSnackBar(
-                          SnackBar(content: Text('Processing Data')));
+//                      Scaffold.of(context).showSnackBar(
+//                          SnackBar(content: Text('Processing Data')));
+                      final FirebaseUser user =
+                          await _auth.signInWithEmailAndPassword(
+                        email: mailController.text,
+                        password: pwdController.text,
+                      );
+                      debugPrint(user.email);
+                      Navigator.pushNamed(context, '/game');
                     }
                   },
                   child: Text('Submit'),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_login/flutter_facebook_login.dart';
+import 'package:funkinator/l10n/bl.dart';
 
 class FacebookLoginWidget extends StatelessWidget {
   void _handleFaceBookSignIn() async {
@@ -37,20 +38,25 @@ class FacebookLoginWidget extends StatelessWidget {
       onPressed: () {
         _handleFaceBookSignIn();
       },
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          const Text(
-            'Login with',
-            style: TextStyle(fontSize: 30.0),
+      child: Container(
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(5.0), color: Colors.blue),
+        child: Padding(
+          padding: const EdgeInsets.all(25.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+          DemoLocalizations.of(context).login_with,
+                style: TextStyle(color: Colors.white, fontSize: 20.0),
+              ),
+              Text(
+                ' facebook',
+                style: TextStyle(color: Colors.white, fontSize: 20.0),
+              ),
+            ],
           ),
-          Text(' '),
-          Text(' facebook ',
-              style: TextStyle(
-                  color: Colors.white,
-                  backgroundColor: Colors.blue,
-                  fontSize: 30.0))
-        ],
+        ),
       ),
     );
   }

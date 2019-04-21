@@ -1,0 +1,18 @@
+{
+  "@@last_modified": "2019-04-21T10:00:12.564920",
+  "title": "שלום עולם",
+  "@title": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "or": "-----או-------",
+  "@or": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "login_with": "כניסה באמצעות",
+  "@login_with": {
+    "type": "text",
+    "placeholders": {}
+  }
+}

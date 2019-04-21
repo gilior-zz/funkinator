@@ -91,7 +91,7 @@ class Signup_Screen extends StatelessWidget {
                         password: pwdController.text,
                       );
                       debugPrint(user.displayName);
-//                      Navigator.pushNamed(context, '/game');
+                      Navigator.pushNamed(context, '/game');
                     },
                     child: Text('Submit'),
                   ),

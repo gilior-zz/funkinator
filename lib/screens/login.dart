@@ -7,7 +7,7 @@ class Login_Screen extends StatelessWidget {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        title: Text('funkinator'),
+          title: Text('funkinator'),
       ),
       body: LoginWidget(),
     );
