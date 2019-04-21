@@ -1,0 +1,18 @@
+{
+  "@@last_modified": "2019-04-21T12:36:45.598948",
+  "title": "Hello World",
+  "@title": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "or": "or",
+  "@or": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "login_with": "login_with",
+  "@login_with": {
+    "type": "text",
+    "placeholders": {}
+  }
+}
