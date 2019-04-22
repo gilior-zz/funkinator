@@ -34,5 +34,10 @@
   "@click_to_sign": {
     "type": "text",
     "placeholders": {}
-  }
+  },
+     "submit": "המשך/י",
+     "@submit": {
+       "type": "text",
+       "placeholders": {}
+     }
 }

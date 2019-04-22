@@ -80,21 +80,27 @@ class Signup_Screen extends StatelessWidget {
                       },
                     ),
                   ),
-                  RaisedButton(
-                    onPressed: () async {
-                      // Validate will return true if the form is valid, or false if
-                      // the form is invalid.
+                  Flex(
+                    direction: Axis.horizontal,
+                    textDirection: TextDirection.ltr,
+                    children: <Widget>[
+                      RaisedButton(
+                        onPressed: () async {
+                          // Validate will return true if the form is valid, or false if
+                          // the form is invalid.
 
-                      // If the form is valid, we want to show a Snackbar
-                      final FirebaseUser user =
-                          await _auth.createUserWithEmailAndPassword(
-                        email: mailController.text,
-                        password: pwdController.text,
-                      );
-                      debugPrint(user.displayName);
-                      Navigator.pushNamed(context, '/game');
-                    },
-                    child: Text('Submit'),
+                          // If the form is valid, we want to show a Snackbar
+                          final FirebaseUser user =
+                              await _auth.createUserWithEmailAndPassword(
+                            email: mailController.text,
+                            password: pwdController.text,
+                          );
+                          debugPrint(user.displayName);
+                          Navigator.pushNamed(context, '/game');
+                        },
+                        child: Text(DemoLocalizations.of(context).submit),
+                      ),
+                    ],
                   ),
                 ],
               ),
