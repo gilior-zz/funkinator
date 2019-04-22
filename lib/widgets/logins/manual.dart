@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:funkinator/l10n/bl.dart';
 import 'package:funkinator/widgets/TextInput.dart';
 
 class ManualLogin extends StatefulWidget {
@@ -42,11 +43,11 @@ class ManualLoginState extends State<ManualLogin> {
               children: <Widget>[
                 Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: TextInput(mailController, textStyle, 'Email',
+                    child: TextInput(mailController, textStyle, DemoLocalizations.of(context).email,
                         'Please enter some text')),
                 Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: TextInput(pwdController, textStyle, 'Pasword',
+                    child: TextInput(pwdController, textStyle, DemoLocalizations.of(context).pwd,
                         'Please enter some text')),
                 RaisedButton(
                   onPressed: ()async {
@@ -65,14 +66,14 @@ class ManualLoginState extends State<ManualLogin> {
                       Navigator.pushNamed(context, '/game');
                     }
                   },
-                  child: Text('Submit'),
+                  child: Text(DemoLocalizations.of(context).submit),
                 ),
                 FlatButton(
                   onPressed: () {
                     Navigator.pushNamed(context, '/signUp');
                   },
                   child: Text(
-                    'click here to sign up',
+                    DemoLocalizations.of(context).click_to_sign,
                     style: TextStyle(
                         fontSize: 15.0, decoration: TextDecoration.underline),
                   ),

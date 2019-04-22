@@ -1,18 +1,43 @@
-import 'package:funkinator/l10n/messages_all.dart';
+//import 'package:funkinator/l10n/messages_all.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter/material.dart';
 
 class DemoLocalizations {
+  String get email => Intl.message(
+    'email',
+    name: 'email',
+  );
+
+  String get pwd => Intl.message(
+    'pwd',
+    name: 'pwd',
+  );
+
+  String get click_to_sign => Intl.message(
+    'click_to_sign',
+    name: 'click_to_sign',
+  );
+
+  String get submit => Intl.message(
+    'submit',
+    name: 'submit',
+  );
+
+  get pwd_2 => Intl.message(
+    'pwd_2',
+    name: 'pwd_2',
+  );
+
   static Future<DemoLocalizations> load(Locale locale) {
     final String name =
         locale.countryCode.isEmpty ? locale.languageCode : locale.toString();
     final String localeName = Intl.canonicalizedLocale(name);
 
-    return initializeMessages(localeName).then((_) {
-      Intl.defaultLocale = localeName;
-      return DemoLocalizations();
-    });
+//    return initializeMessages(localeName).then((_) {
+//      Intl.defaultLocale = localeName;
+//      return DemoLocalizations();
+//    });
   }
 
   static DemoLocalizations of(BuildContext context) {

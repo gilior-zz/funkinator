@@ -1,5 +1,30 @@
 {
-  "@@last_modified": "2019-04-21T12:36:45.598948",
+  "@@last_modified": "2019-04-21T23:09:22.076315",
+  "email": "email",
+  "@email": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "pwd": "pwd",
+  "@pwd": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "click_to_sign": "click_to_sign",
+  "@click_to_sign": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "submit": "submit",
+  "@submit": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "pwd_2": "pwd_2",
+  "@pwd_2": {
+    "type": "text",
+    "placeholders": {}
+  },
   "title": "Hello World",
   "@title": {
     "type": "text",

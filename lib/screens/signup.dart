@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:funkinator/l10n/bl.dart';
 
 class Signup_Screen extends StatelessWidget {
   TextEditingController mailController = TextEditingController();
@@ -29,7 +30,7 @@ class Signup_Screen extends StatelessWidget {
                     padding: const EdgeInsets.all(8.0),
                     child: TextFormField(
                       decoration: InputDecoration(
-                        labelText: 'Email',
+                        labelText: DemoLocalizations.of(context).email,
                         labelStyle: textStyle,
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(5.0),
@@ -47,7 +48,7 @@ class Signup_Screen extends StatelessWidget {
                     padding: const EdgeInsets.all(8.0),
                     child: TextFormField(
                       decoration: InputDecoration(
-                        labelText: 'Pasword',
+                        labelText: DemoLocalizations.of(context).pwd,
                         labelStyle: textStyle,
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(5.0),
@@ -65,7 +66,7 @@ class Signup_Screen extends StatelessWidget {
                     padding: const EdgeInsets.all(8.0),
                     child: TextFormField(
                       decoration: InputDecoration(
-                        labelText: 'Pasword again...',
+                        labelText: DemoLocalizations.of(context).pwd_2,
                         labelStyle: textStyle,
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(5.0),

@@ -14,5 +14,25 @@
   "@login_with": {
     "type": "text",
     "placeholders": {}
+  },
+  "email": "אימייל",
+  "@email": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "pwd": "סיסמה",
+  "@pwd": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "pwd_2": "סיסמה שוב...",
+  "@pwd_2": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "click_to_sign": "לחץ/י להרשמה",
+  "@click_to_sign": {
+    "type": "text",
+    "placeholders": {}
   }
 }
