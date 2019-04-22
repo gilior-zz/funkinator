@@ -32,7 +32,7 @@ class GoogleLoginWidget extends StatelessWidget {
             children: <Widget>[
               Text(
                 DemoLocalizations.of(context).login_with,
-                style: TextStyle(fontSize: 20.0),
+                style: TextStyle(fontSize: 20.0,color: Colors.black),
               ),
               Flex(
                 direction: Axis.horizontal,
