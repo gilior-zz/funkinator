@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
       supportedLocales: supportedLocales,
       home: Login_Screen(),
       title: 'DemoLocalizations.of(context).title',
-      theme: ThemeData.light(),
+      theme: ThemeData.dark(),
       initialRoute: '/',
       routes: {
         // When we navigate to the "/" route, build the FirstScreen Widget

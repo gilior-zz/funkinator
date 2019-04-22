@@ -23,86 +23,92 @@ class Signup_Screen extends StatelessWidget {
           Card(
             child: Form(
               key: _formKey,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                        labelText: DemoLocalizations.of(context).email,
-                        labelStyle: textStyle,
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5.0),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                          labelText: DemoLocalizations.of(context).email,
+                          labelStyle: textStyle,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
                         ),
-                      ),
-                      controller: mailController,
-                      validator: (value) {
-                        if (value.isEmpty) {
-                          return 'Please enter some text';
-                        }
-                      },
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                        labelText: DemoLocalizations.of(context).pwd,
-                        labelStyle: textStyle,
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5.0),
-                        ),
-                      ),
-                      controller: pwdController,
-                      validator: (value) {
-                        if (value.isEmpty) {
-                          return 'Please enter some text';
-                        }
-                      },
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                        labelText: DemoLocalizations.of(context).pwd_2,
-                        labelStyle: textStyle,
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5.0),
-                        ),
-                      ),
-                      controller: pwdController_2,
-                      validator: (value) {
-                        if (value.isEmpty) {
-                          return 'Please enter some text';
-                        }
-                      },
-                    ),
-                  ),
-                  Flex(
-                    direction: Axis.horizontal,
-                    textDirection: TextDirection.ltr,
-                    children: <Widget>[
-                      RaisedButton(
-                        onPressed: () async {
-                          // Validate will return true if the form is valid, or false if
-                          // the form is invalid.
-
-                          // If the form is valid, we want to show a Snackbar
-                          final FirebaseUser user =
-                              await _auth.createUserWithEmailAndPassword(
-                            email: mailController.text,
-                            password: pwdController.text,
-                          );
-                          debugPrint(user.displayName);
-                          Navigator.pushNamed(context, '/game');
+                        controller: mailController,
+                        validator: (value) {
+                          if (value.isEmpty) {
+                            return 'Please enter some text';
+                          }
                         },
-                        child: Text(DemoLocalizations.of(context).submit),
                       ),
-                    ],
-                  ),
-                ],
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                          labelText: DemoLocalizations.of(context).pwd,
+                          labelStyle: textStyle,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
+                        ),
+                        controller: pwdController,
+                        validator: (value) {
+                          if (value.isEmpty) {
+                            return 'Please enter some text';
+                          }
+                        },
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                          labelText: DemoLocalizations.of(context).pwd_2,
+                          labelStyle: textStyle,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
+                        ),
+                        controller: pwdController_2,
+                        validator: (value) {
+                          if (value.isEmpty) {
+                            return 'Please enter some text';
+                          }
+                        },
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Flex(
+                        direction: Axis.horizontal,
+                        textDirection: TextDirection.ltr,
+                        children: <Widget>[
+                          RaisedButton(
+                            onPressed: () async {
+                              // Validate will return true if the form is valid, or false if
+                              // the form is invalid.
+
+                              // If the form is valid, we want to show a Snackbar
+                              final FirebaseUser user =
+                                  await _auth.createUserWithEmailAndPassword(
+                                email: mailController.text,
+                                password: pwdController.text,
+                              );
+                              debugPrint(user.displayName);
+                              Navigator.pushNamed(context, '/game');
+                            },
+                            child: Text(DemoLocalizations.of(context).submit),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

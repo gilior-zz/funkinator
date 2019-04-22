@@ -23,11 +23,17 @@ class LoginWidget extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: FacebookLoginWidget(),
             ),
-            Text(
-              DemoLocalizations.of(context).or,
-              style: TextStyle(fontSize: 20.0),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 0,vertical: 8),
+              child: Text(
+                DemoLocalizations.of(context).or,
+                style: TextStyle(fontSize: 20.0),
+              ),
             ),
-            ManualLogin(), //
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ManualLogin(),
+            ), //
           ],
         ),
       ],
