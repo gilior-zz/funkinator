@@ -1,4 +1,4 @@
-//import 'package:funkinator/l10n/messages_all.dart';
+import 'package:funkinator/l10n/messages_all.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter/material.dart';
@@ -36,10 +36,10 @@ class DemoLocalizations {
         locale.countryCode.isEmpty ? locale.languageCode : locale.toString();
     final String localeName = Intl.canonicalizedLocale(name);
 
-//    return initializeMessages(localeName).then((_) {
-//      Intl.defaultLocale = localeName;
-//      return DemoLocalizations();
-//    });
+    return initializeMessages(localeName).then((_) {
+      Intl.defaultLocale = localeName;
+      return DemoLocalizations();
+    });
   }
 
   static DemoLocalizations of(BuildContext context) {
