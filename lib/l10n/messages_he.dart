@@ -18,10 +18,13 @@ typedef MessageIfAbsent(String message_str, List args);
 class MessageLookup extends MessageLookupByLibrary {
   get localeName => 'he';
 
+  static m0(name) => "שלום ${name}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
     "click_to_sign" : MessageLookupByLibrary.simpleMessage("לחץ/י להרשמה"),
     "email" : MessageLookupByLibrary.simpleMessage("אימייל"),
+    "hello" : m0,
     "login_with" : MessageLookupByLibrary.simpleMessage("כניסה באמצעות"),
     "or" : MessageLookupByLibrary.simpleMessage("-----או-------"),
     "pwd" : MessageLookupByLibrary.simpleMessage("סיסמה"),

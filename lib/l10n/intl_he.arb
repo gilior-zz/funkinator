@@ -39,5 +39,13 @@
      "@submit": {
        "type": "text",
        "placeholders": {}
-     }
+     },
+       "hello": "שלום {name}",
+       "@hello": {
+       "type": "text",
+        "placeholders": {
+             "name": {}
+           }
+        }
+
 }

@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2019-04-22T15:51:08.855297",
+  "@@last_modified": "2019-04-24T17:56:12.827211",
   "email": "email",
   "@email": {
     "type": "text",
@@ -24,6 +24,13 @@
   "@pwd_2": {
     "type": "text",
     "placeholders": {}
+  },
+  "hello": "Hello, {name}",
+  "@hello": {
+    "type": "text",
+    "placeholders": {
+      "name": {}
+    }
   },
   "title": "Hello World",
   "@title": {
