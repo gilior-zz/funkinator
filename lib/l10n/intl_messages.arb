@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2019-04-24T17:56:12.827211",
+  "@@last_modified": "2019-04-27T16:40:50.121147",
   "email": "email",
   "@email": {
     "type": "text",
@@ -22,6 +22,11 @@
   },
   "pwd_2": "pwd_2",
   "@pwd_2": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "guest": "guest",
+  "@guest": {
     "type": "text",
     "placeholders": {}
   },

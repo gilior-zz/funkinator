@@ -24,6 +24,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static _notInlinedMessages(_) => <String, Function> {
     "click_to_sign" : MessageLookupByLibrary.simpleMessage("לחץ/י להרשמה"),
     "email" : MessageLookupByLibrary.simpleMessage("אימייל"),
+    "guest" : MessageLookupByLibrary.simpleMessage("אורח/ת"),
     "hello" : m0,
     "login_with" : MessageLookupByLibrary.simpleMessage("כניסה באמצעות"),
     "or" : MessageLookupByLibrary.simpleMessage("-----או-------"),

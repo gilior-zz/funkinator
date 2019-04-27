@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:funkinator/l10n/bl.dart';
+import 'package:funkinator/models/app_model.dart';
 import 'package:funkinator/screens/game.dart';
 import 'package:funkinator/screens/login.dart';
 import 'package:funkinator/screens/signup.dart';
+import 'package:scoped_model/scoped_model.dart';
 
 class DemoApp extends StatelessWidget {
   @override
@@ -18,7 +20,18 @@ class DemoApp extends StatelessWidget {
   }
 }
 
-void main() => runApp(MyApp());
+void main() {
+  final cart = AppModel();
+
+  // You could optionally connect [cart] with some database here.
+
+  runApp(
+    ScopedModel<AppModel>(
+      model: cart,
+      child: MyApp(),
+    ),
+  );
+}
 
 class MyApp extends StatelessWidget {
   @override

@@ -29,6 +29,11 @@ class DemoLocalizations {
         name: 'pwd_2',
       );
 
+  get guest =>  Intl.message(
+    'guest',
+    name: 'guest',
+  );
+
   hello(name) => Intl.message("Hello, $name", name: 'hello', args: [name]);
 
   static Future<DemoLocalizations> load(Locale locale) {

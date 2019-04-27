@@ -1,24 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:funkinator/l10n/bl.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class FacebookLoginWidget extends StatelessWidget {
-  void _handleFaceBookSignIn() async {
+
+  Future<dynamic>  _handleFaceBookSignIn() async {
     final login = FacebookLogin();
-    final FacebookLoginResult result =
-        await login.logInWithReadPermissions(['email']);
+    final result = await login.logInWithReadPermissions(['email']);
+    final token = result.accessToken.token;
+    final graphResponse = await http.get(
+        'https://graph.facebook.com/v2.12/me?fields=name,first_name,last_name,email&access_token=${token}');
+    final profile = JsonDecoder().convert(graphResponse.body);
 
     switch (result.status) {
       case FacebookLoginStatus.loggedIn:
         final FacebookAccessToken accessToken = result.accessToken;
         debugPrint('''
-         Logged in!
-         
+         Logged in!         
          Token: ${accessToken.token}
          User id: ${accessToken.userId}
          Expires: ${accessToken.expires}
          Permissions: ${accessToken.permissions}
          Declined permissions: ${accessToken.declinedPermissions}
+         $profile
          ''');
         break;
       case FacebookLoginStatus.cancelledByUser:

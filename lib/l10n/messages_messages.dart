@@ -24,6 +24,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static _notInlinedMessages(_) => <String, Function> {
     "click_to_sign" : MessageLookupByLibrary.simpleMessage("click_to_sign"),
     "email" : MessageLookupByLibrary.simpleMessage("email"),
+    "guest" : MessageLookupByLibrary.simpleMessage("guest"),
     "hello" : m0,
     "login_with" : MessageLookupByLibrary.simpleMessage("login_with"),
     "or" : MessageLookupByLibrary.simpleMessage("or"),

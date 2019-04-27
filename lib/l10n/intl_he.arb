@@ -35,17 +35,21 @@
     "type": "text",
     "placeholders": {}
   },
-     "submit": "המשך/י",
-     "@submit": {
-       "type": "text",
-       "placeholders": {}
-     },
-       "hello": "שלום {name}",
-       "@hello": {
-       "type": "text",
-        "placeholders": {
-             "name": {}
-           }
-        }
-
+  "submit": "המשך/י",
+  "@submit": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "hello": "שלום {name}",
+  "@hello": {
+    "type": "text",
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "guest": "אורח/ת",
+  "@guest": {
+    "type": "text",
+    "placeholders": {}
+  }
 }
