@@ -14,11 +14,11 @@ class Login_Screen extends StatelessWidget {
           children: <Widget>[
             Expanded(
               child: ScopedModelDescendant<AppModel>(
-                builder: (context, child, cart) {
+                builder: (context, child, appModel) {
                   return Text(DemoLocalizations.of(context).hello(
-                      cart.user_name.isEmpty
+                      appModel.user_name.isEmpty
                           ? DemoLocalizations.of(context).guest
-                          : cart.user_name));
+                          : appModel.user_name));
                 },
               ), //
             ),

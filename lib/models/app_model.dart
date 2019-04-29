@@ -1,19 +1,25 @@
 import 'package:scoped_model/scoped_model.dart';
 
 class AppModel extends Model {
-  User user = User(name: '', email: '');
+  User user = User(first_name: '', email: '');
 
-  String get user_name => user.name;
+  String get user_name => user.first_name;
 
-  updateUser(User foo) {
-    user = foo;
+//  updateUser(User foo) {
+//    user = foo;
+//    notifyListeners();
+//  }
+  updateUser({String email, String first_name, String last_name, String id}) {
+    user.email = email;
+    user.id = id;
+    user.last_name = last_name;
+    user.first_name = first_name;
     notifyListeners();
   }
 }
 
 class User {
   String email;
-  String name;
 
   String last_name;
 
@@ -21,10 +27,5 @@ class User {
 
   String id;
 
-  User(
-      {this.name,
-      this.email,
-      this.first_name = '',
-      this.last_name = '',
-      this.id = ''});
+  User({this.email, this.first_name = '', this.last_name = '', this.id = ''});
 }

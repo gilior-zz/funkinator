@@ -10,23 +10,23 @@ class GoogleLoginWidget extends StatelessWidget {
   GoogleSignIn _googleSignIn = GoogleSignIn();
 
   Future<GoogleSignInAccount> _handleGoogleSignIn() async {
-    try {
-      var s = await _googleSignIn.signIn();
-      debugPrint('$s');
-      return s;
-    } catch (error) {
-      print(error);
+      var loginInfo = await _googleSignIn.signIn();
+      debugPrint('$loginInfo');
+      return loginInfo;
     }
-  }
 
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return ScopedModelDescendant<AppModel>(builder: (context, child, cart) {
+    return ScopedModelDescendant<AppModel>(builder: (context, child, appModel) {
       return FlatButton(
         onPressed: () async {
-          var s = await _handleGoogleSignIn();
-          cart.updateUser(User(email: s.email, name: s.displayName));
+          var loginInfo = await _handleGoogleSignIn();
+          appModel.updateUser(
+              email: loginInfo.email,
+              first_name: loginInfo.displayName.split(' ')[0],
+              last_name: loginInfo.displayName.split(' ')[1],
+              id: loginInfo.id);
         },
         child: Container(
           decoration: BoxDecoration(
