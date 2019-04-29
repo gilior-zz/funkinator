@@ -44,6 +44,9 @@ class MyApp extends StatelessWidget {
 //      home: Login_Screen(),
       title: 'DemoLocalizations.of(context).title',
       theme: ThemeData.dark(),
+      onGenerateRoute: (RouteSettings settings){
+
+      },
       initialRoute: '/',
       routes: {
         // When we navigate to the "/" route, build the FirstScreen Widget
