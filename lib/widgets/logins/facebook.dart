@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:funkinator/l10n/bl.dart';
@@ -72,12 +74,13 @@ class FacebookLoginWidget extends StatelessWidget {
           ),
           onPressed: () async {
             var loginInfo = await _handleFaceBookSignIn();
-            final profile = JsonDecoder().convert(loginInfo.body);
+            final profile = JsonDecoder().convert(loginInfo.body) as LinkedHashMap;
+            debugPrint('$profile');
             appModel.updateUser(
-                email: profile.email,
-                id: profile.id,
-                first_name: profile.first_name,
-                last_name: profile.last_name);
+                email: profile['email'],
+                id: profile['id'],
+                first_name: profile['first_name'],
+                last_name: profile['last_name']);
           });
     });
   }

@@ -41,13 +41,14 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       localizationsDelegates: localizationsDelegates,
       supportedLocales: supportedLocales,
-      home: Login_Screen(),
+//      home: Login_Screen(),
       title: 'DemoLocalizations.of(context).title',
       theme: ThemeData.dark(),
       initialRoute: '/',
       routes: {
         // When we navigate to the "/" route, build the FirstScreen Widget
         // When we navigate to the "/second" route, build the SecondScreen Widget
+        '/': (context) => Login_Screen(),
         '/signUp': (context) => Signup_Screen(),
         '/game': (context) => Game_Screen(),
       },
