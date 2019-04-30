@@ -21,13 +21,13 @@ class DemoApp extends StatelessWidget {
 }
 
 void main() {
-  final cart = AppModel();
+  final appModel = AppModel();
 
   // You could optionally connect [cart] with some database here.
 
   runApp(
     ScopedModel<AppModel>(
-      model: cart,
+      model: appModel,
       child: MyApp(),
     ),
   );
@@ -37,24 +37,35 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return MaterialApp(
+    return  MaterialApp(
       debugShowCheckedModeBanner: false,
       localizationsDelegates: localizationsDelegates,
       supportedLocales: supportedLocales,
 //      home: Login_Screen(),
       title: 'DemoLocalizations.of(context).title',
       theme: ThemeData.dark(),
-      onGenerateRoute: (RouteSettings settings){
-
+      onGenerateRoute: (RouteSettings settings) {
+        switch (settings.name) {
+          case '/':
+            return MaterialPageRoute(settings: settings,builder: (BuildContext context) => Login_Screen()) ;
+            break;
+          case '/signUp':
+            return MaterialPageRoute(settings: settings,builder: (BuildContext context) => Signup_Screen());
+            break;
+          case '/game':
+            return MaterialPageRoute(settings: settings,builder: (BuildContext context) => Game_Screen());
+            break;
+        }
+        debugPrint('$settings');
       },
       initialRoute: '/',
-      routes: {
-        // When we navigate to the "/" route, build the FirstScreen Widget
-        // When we navigate to the "/second" route, build the SecondScreen Widget
-        '/': (context) => Login_Screen(),
-        '/signUp': (context) => Signup_Screen(),
-        '/game': (context) => Game_Screen(),
-      },
+//      routes: {
+//        // When we navigate to the "/" route, build the FirstScreen Widget
+//        // When we navigate to the "/second" route, build the SecondScreen Widget
+//        '/': (context) => Login_Screen(),
+//        '/signUp': (context) => Signup_Screen(),
+//        '/game': (context) => Game_Screen(),
+//      },
     );
   }
 }
