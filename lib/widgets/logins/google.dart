@@ -1,19 +1,23 @@
+import 'dart:math';
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:funkinator/l10n/bl.dart';
 import 'package:funkinator/models/app_model.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:scoped_model/scoped_model.dart';
+import 'package:firebase_database/firebase_database.dart';
 
 class GoogleLoginWidget extends StatelessWidget {
   final appModel = AppModel();
   GoogleSignIn _googleSignIn = GoogleSignIn();
 
   Future<GoogleSignInAccount> _handleGoogleSignIn() async {
-      var loginInfo = await _googleSignIn.signIn();
-      debugPrint('$loginInfo');
-      return loginInfo;
-    }
+    var loginInfo = await _googleSignIn.signIn();
+    debugPrint('$loginInfo');
+    return loginInfo;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +26,24 @@ class GoogleLoginWidget extends StatelessWidget {
       return FlatButton(
         onPressed: () async {
           var loginInfo = await _handleGoogleSignIn();
+
+          //update firebase
+          var user = new User(
+              email: loginInfo.email,
+              first_name: loginInfo.displayName.split(' ')[0],
+              last_name: loginInfo.displayName.split(' ')[1],
+              id: loginInfo.id);
+
+          final FirebaseUser f =
+              await FirebaseAuth.instance.createUserWithEmailAndPassword(
+            email: new Random().nextInt(9999999).toString() + '@abc.com',
+            password: '1q2w3e1q2w3e',
+          );
+
+          DatabaseReference ref = FirebaseDatabase.instance.reference();
+          DatabaseReference ref2 = ref.child(f.uid);
+          ref2.set(f);
+
           appModel.updateUser(
               email: loginInfo.email,
               first_name: loginInfo.displayName.split(' ')[0],
