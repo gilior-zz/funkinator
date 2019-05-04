@@ -30,8 +30,8 @@ class ManualLoginState extends State<ManualLogin> {
     // TODO: implement initState
 
     super.initState();
-//    mailController.text = 'aaaaa@aaa.com';
-//    pwdController.text = '1q2w3e';
+    mailController.text = 'aaaaa@aaa.com';
+    pwdController.text = '1q2w3e';
   }
 
   @override
