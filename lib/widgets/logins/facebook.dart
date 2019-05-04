@@ -1,5 +1,6 @@
 import 'dart:collection';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:funkinator/l10n/bl.dart';
@@ -76,6 +77,16 @@ class FacebookLoginWidget extends StatelessWidget {
             var loginInfo = await _handleFaceBookSignIn();
             final profile = JsonDecoder().convert(loginInfo.body) as LinkedHashMap;
             debugPrint('$profile');
+            var map=Map<String, dynamic>();
+
+            map['origin']='facebook';
+            map['email']=profile['email'];
+            map['phone']='';
+            map['first_name']=profile['first_name'];
+            map['last_name']=profile['last_name'];
+            map['id']=profile['id'];
+            Firestore.instance.collection('logins').document()
+                .setData(map,merge: true);
             appModel.updateUser(
                 email: profile['email'],
                 id: profile['id'],

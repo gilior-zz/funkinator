@@ -50,7 +50,7 @@ class MyApp extends StatelessWidget {
             case '/':
               return MaterialPageRoute(
                   settings: settings,
-                  builder: (BuildContext context) =>appModel.user_name.isNotEmpty? Game_Screen():Login_Screen());
+                  builder: (BuildContext context) =>appModel.user_name.isNotEmpty? Login_Screen():Login_Screen());
               break;
             case '/signUp':
               return MaterialPageRoute(

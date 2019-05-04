@@ -7,16 +7,30 @@ import 'package:funkinator/l10n/bl.dart';
 import 'package:funkinator/models/app_model.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:scoped_model/scoped_model.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_database/firebase_database.dart';
 
 class GoogleLoginWidget extends StatelessWidget {
   final appModel = AppModel();
   GoogleSignIn _googleSignIn = GoogleSignIn();
 
-  Future<GoogleSignInAccount> _handleGoogleSignIn() async {
-    var loginInfo = await _googleSignIn.signIn();
-    debugPrint('$loginInfo');
-    return loginInfo;
+//  Future<GoogleSignInAccount> _handleGoogleSignIn() async {
+//    var loginInfo = await _googleSignIn.signIn();
+//    debugPrint('$loginInfo');
+//    return loginInfo;
+//  }
+
+  Future<FirebaseUser> _handleGoogleSignIn() async {
+    GoogleSignInAccount googleUser = await _googleSignIn.signIn();
+    GoogleSignInAuthentication googleAuth = await googleUser.authentication;
+    final AuthCredential credential = GoogleAuthProvider.getCredential(
+      accessToken: googleAuth.accessToken,
+      idToken: googleAuth.idToken,
+    );
+    final FirebaseUser user =
+        await FirebaseAuth.instance.signInWithCredential(credential);
+    debugPrint("signed in " + user.displayName);
+    return user;
   }
 
   @override
@@ -26,29 +40,34 @@ class GoogleLoginWidget extends StatelessWidget {
       return FlatButton(
         onPressed: () async {
           var loginInfo = await _handleGoogleSignIn();
+//          FirebaseUser user = await FirebaseAuth.instance.sign(
+//              idToken: gSA.idToken, accessToken: gSA.accessToken);
 
           //update firebase
-          var user = new User(
-              email: loginInfo.email,
-              first_name: loginInfo.displayName.split(' ')[0],
-              last_name: loginInfo.displayName.split(' ')[1],
-              id: loginInfo.id);
+//          var user = new User(
+//              email: loginInfo.email,
+//              first_name: loginInfo.displayName.split(' ')[0],
+//              last_name: loginInfo.displayName.split(' ')[1],
+//              id: loginInfo.uid);
 
-          final FirebaseUser f =
-              await FirebaseAuth.instance.createUserWithEmailAndPassword(
-            email: new Random().nextInt(9999999).toString() + '@abc.com',
-            password: '1q2w3e1q2w3e',
-          );
+//
 
-          DatabaseReference ref = FirebaseDatabase.instance.reference();
-          DatabaseReference ref2 = ref.child(f.uid);
-          ref2.set(f);
+          var map = Map<String, dynamic>();
+
+          map['origin'] = 'google';
+          map['email'] = loginInfo.email;
+          map['phone'] = loginInfo.phoneNumber;
+          map['first_name'] = loginInfo.displayName.split(' ')[0];
+          map['last_name'] = loginInfo.displayName.split(' ')[1];
+          map['id'] = loginInfo.uid;
+          map['created'] = FieldValue.serverTimestamp();
+          Firestore.instance.collection('logins').document().setData(map);
 
           appModel.updateUser(
               email: loginInfo.email,
               first_name: loginInfo.displayName.split(' ')[0],
               last_name: loginInfo.displayName.split(' ')[1],
-              id: loginInfo.id);
+              id: loginInfo.uid);
         },
         child: Container(
           decoration: BoxDecoration(
