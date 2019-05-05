@@ -23,13 +23,17 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
     "click_to_sign" : MessageLookupByLibrary.simpleMessage("לחץ/י להרשמה"),
+    "create_training" : MessageLookupByLibrary.simpleMessage("יצירת אימון"),
     "email" : MessageLookupByLibrary.simpleMessage("אימייל"),
     "guest" : MessageLookupByLibrary.simpleMessage("אורח/ת"),
     "hello" : m0,
     "login_with" : MessageLookupByLibrary.simpleMessage("כניסה באמצעות"),
+    "manage_trainings" : MessageLookupByLibrary.simpleMessage("ניהול אימונים"),
     "or" : MessageLookupByLibrary.simpleMessage("-----או-------"),
     "pwd" : MessageLookupByLibrary.simpleMessage("סיסמה"),
     "pwd_2" : MessageLookupByLibrary.simpleMessage("סיסמה שוב..."),
+    "start_training" : MessageLookupByLibrary.simpleMessage("התחלת אימון"),
+    "statistics" : MessageLookupByLibrary.simpleMessage("סטטיסטיקות"),
     "submit" : MessageLookupByLibrary.simpleMessage("המשך/י"),
     "title" : MessageLookupByLibrary.simpleMessage("שלום עולם")
   };

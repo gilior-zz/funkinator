@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2019-04-27T16:40:50.121147",
+  "@@last_modified": "2019-05-02T17:16:26.402682",
   "email": "email",
   "@email": {
     "type": "text",
@@ -27,6 +27,26 @@
   },
   "guest": "guest",
   "@guest": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "create_training": "create_training",
+  "@create_training": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "start_training": "start_training",
+  "@start_training": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "statistics": "statistics",
+  "@statistics": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "manage_trainings": "manage_trainings",
+  "@manage_trainings": {
     "type": "text",
     "placeholders": {}
   },

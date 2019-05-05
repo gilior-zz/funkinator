@@ -51,5 +51,25 @@
   "@guest": {
     "type": "text",
     "placeholders": {}
-  }
+  }    ,
+      "create_training": "יצירת אימון",
+    "@create_training": {
+      "type": "text",
+      "placeholders": {}
+    } ,
+           "start_training": "התחלת אימון",
+         "@start_training": {
+           "type": "text",
+           "placeholders": {}
+         },
+                     "statistics": "סטטיסטיקות",
+                   "@statistics": {
+                     "type": "text",
+                     "placeholders": {}
+                   },
+                                         "manage_trainings": "ניהול אימונים",
+                                       "@manage_trainings": {
+                                         "type": "text",
+                                         "placeholders": {}
+                                       }
 }

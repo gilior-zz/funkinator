@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:funkinator/l10n/bl.dart';
 import 'package:funkinator/models/app_model.dart';
+import 'package:funkinator/screens/main.dart';
 import 'package:funkinator/screens/game.dart';
 import 'package:funkinator/screens/login.dart';
 import 'package:funkinator/screens/signup.dart';
@@ -37,7 +38,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return  MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       localizationsDelegates: localizationsDelegates,
       supportedLocales: supportedLocales,
@@ -47,13 +48,19 @@ class MyApp extends StatelessWidget {
       onGenerateRoute: (RouteSettings settings) {
         switch (settings.name) {
           case '/':
-            return MaterialPageRoute(settings: settings,builder: (BuildContext context) => Login_Screen()) ;
+            return MaterialPageRoute(
+                settings: settings,
+                builder: (BuildContext context) => Main_Screen());
             break;
           case '/signUp':
-            return MaterialPageRoute(settings: settings,builder: (BuildContext context) => Signup_Screen());
+            return MaterialPageRoute(
+                settings: settings,
+                builder: (BuildContext context) => Signup_Screen());
             break;
           case '/game':
-            return MaterialPageRoute(settings: settings,builder: (BuildContext context) => Game_Screen());
+            return MaterialPageRoute(
+                settings: settings,
+                builder: (BuildContext context) => Game_Screen());
             break;
         }
         debugPrint('$settings');

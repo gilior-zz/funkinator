@@ -34,6 +34,26 @@ class DemoLocalizations {
     name: 'guest',
   );
 
+  String get create_training => Intl.message(
+    'create_training',
+    name: 'create_training',
+  );
+
+  String get start_training => Intl.message(
+    'start_training',
+    name: 'start_training',
+  );
+
+  String get statistics => Intl.message(
+    'statistics',
+    name: 'statistics',
+  );
+
+  String get manage_trainings => Intl.message(
+    'manage_trainings',
+    name: 'manage_trainings',
+  );
+
   hello(name) => Intl.message("Hello, $name", name: 'hello', args: [name]);
 
   static Future<DemoLocalizations> load(Locale locale) {
