@@ -68,6 +68,7 @@ class GoogleLoginWidget extends StatelessWidget {
               first_name: loginInfo.displayName.split(' ')[0],
               last_name: loginInfo.displayName.split(' ')[1],
               id: loginInfo.uid);
+          Navigator.pushNamed(context, '/');
         },
         child: Container(
           decoration: BoxDecoration(
