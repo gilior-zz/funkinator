@@ -1,7 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:funkinator/l10n/bl.dart';
+import 'package:funkinator/models/app_model.dart';
+import 'package:scoped_model/scoped_model.dart';
 
 class Signup_Screen extends StatelessWidget {
   TextEditingController mailController = TextEditingController();
@@ -88,22 +91,47 @@ class Signup_Screen extends StatelessWidget {
                         direction: Axis.horizontal,
                         textDirection: TextDirection.ltr,
                         children: <Widget>[
-                          RaisedButton(
-                            onPressed: () async {
-                              // Validate will return true if the form is valid, or false if
-                              // the form is invalid.
+                          ScopedModelDescendant<AppModel>(
+                              builder: (context, child, appModel) {
+                            return RaisedButton(
+                              onPressed: () async {
+                                // Validate will return true if the form is valid, or false if
+                                // the form is invalid.
 
-                              // If the form is valid, we want to show a Snackbar
-                              final FirebaseUser user =
-                                  await _auth.createUserWithEmailAndPassword(
-                                email: mailController.text,
-                                password: pwdController.text,
-                              );
-                              debugPrint(user.displayName);
-                              Navigator.pushNamed(context, '/game');
-                            },
-                            child: Text(DemoLocalizations.of(context).submit),
-                          ),
+                                // If the form is valid, we want to show a Snackbar
+                                final FirebaseUser user =
+                                    await _auth.createUserWithEmailAndPassword(
+                                  email: mailController.text,
+                                  password: pwdController.text,
+                                );
+                                debugPrint(user.displayName);
+
+                                await _auth.signInWithEmailAndPassword(
+                                  email: mailController.text,
+                                  password: pwdController.text,
+                                );
+                                debugPrint(user.email);
+                                var map = Map<String, dynamic>();
+
+                                map['origin'] = 'manual';
+                                map['email'] = mailController.text;
+
+                                map['created'] = FieldValue.serverTimestamp();
+
+                                Firestore.instance
+                                    .collection('logins')
+                                    .document()
+                                    .setData(map);
+
+                                appModel.updateUser(
+                                  email: mailController.text,
+                                );
+
+                                Navigator.pushNamed(context, '/');
+                              },
+                              child: Text(DemoLocalizations.of(context).submit),
+                            );
+                          })
                         ],
                       ),
                     ),

@@ -1,8 +1,11 @@
 import 'dart:async';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:funkinator/l10n/bl.dart';
+import 'package:funkinator/models/app_model.dart';
 import 'package:funkinator/widgets/TextInput.dart';
+import 'package:scoped_model/scoped_model.dart';
 
 class ManualLogin extends StatefulWidget {
   ManualLogin();
@@ -27,8 +30,8 @@ class ManualLoginState extends State<ManualLogin> {
     // TODO: implement initState
 
     super.initState();
-    mailController.text = 'aaaaa@aaa.com';
-    pwdController.text = '1q2w3e';
+//    mailController.text = 'aaaaa@aaa.com';
+//    pwdController.text = '1q2w3e';
   }
 
   @override
@@ -65,25 +68,44 @@ class ManualLoginState extends State<ManualLogin> {
                         direction: Axis.horizontal,
                         textDirection: TextDirection.ltr,
                         children: <Widget>[
-                          RaisedButton(
-                            onPressed: () async {
-                              // Validate will return true if the form is valid, or false if
-                              // the form is invalid.
-                              if (_formKey.currentState.validate()) {
-                                // If the form is valid, we want to show a Snackbar
+                          ScopedModelDescendant<AppModel>(
+                              builder: (context, child, appModel) {
+                            return RaisedButton(
+                              onPressed: () async {
+                                // Validate will return true if the form is valid, or false if
+                                // the form is invalid.
+                                if (_formKey.currentState.validate()) {
+                                  // If the form is valid, we want to show a Snackbar
 //                      Scaffold.of(context).showSnackBar(
 //                          SnackBar(content: Text('Processing Data')));
-                                final FirebaseUser user =
-                                    await _auth.signInWithEmailAndPassword(
-                                  email: mailController.text,
-                                  password: pwdController.text,
-                                );
-                                debugPrint(user.email);
-                                Navigator.pushNamed(context, '/game');
-                              }
-                            },
-                            child: Text(DemoLocalizations.of(context).submit),
-                          ),
+                                  final FirebaseUser user =
+                                      await _auth.signInWithEmailAndPassword(
+                                    email: mailController.text,
+                                    password: pwdController.text,
+                                  );
+                                  debugPrint(user.email);
+                                  var map = Map<String, dynamic>();
+
+                                  map['origin'] = 'manual';
+                                  map['email'] = mailController.text;
+
+                                  map['created'] = FieldValue.serverTimestamp();
+
+                                  Firestore.instance
+                                      .collection('logins')
+                                      .document()
+                                      .setData(map);
+
+                                  appModel.updateUser(
+                                    email: mailController.text,
+                                  );
+
+                                  Navigator.pushNamed(context, '/');
+                                }
+                              },
+                              child: Text(DemoLocalizations.of(context).submit),
+                            );
+                          })
                         ],
                       )),
                   FlatButton(
