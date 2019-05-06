@@ -7,16 +7,16 @@ import 'package:funkinator/models/app_model.dart';
 import 'package:funkinator/widgets/TextInput.dart';
 import 'package:scoped_model/scoped_model.dart';
 
-class ManualLogin extends StatefulWidget {
-  ManualLogin();
+class ManualLoginWidget extends StatefulWidget {
+  ManualLoginWidget();
 
   @override
   State<StatefulWidget> createState() {
-    return ManualLoginState();
+    return ManualLoginWidgetState();
   }
 }
 
-class ManualLoginState extends State<ManualLogin> {
+class ManualLoginWidgetState extends State<ManualLoginWidget> {
   final _formKey = GlobalKey<FormState>();
   final FirebaseAuth _auth = FirebaseAuth.instance;
 

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:funkinator/l10n/bl.dart';
-import 'package:funkinator/widgets/logins/facebook.dart';
-import 'package:funkinator/widgets/logins/google.dart';
-import 'package:funkinator/widgets/logins/manual.dart';
+import 'package:funkinator/widgets/login-widgets/facebook.widget.dart';
+import 'package:funkinator/widgets/login-widgets/google.widget.dart';
+import 'package:funkinator/widgets/login-widgets/manual.widget.dart';
+
 
 class LoginWidget extends StatelessWidget {
   @override
@@ -32,7 +33,7 @@ class LoginWidget extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: ManualLogin(),
+              child: ManualLoginWidget(),
             ), //
           ],
         ),

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:funkinator/l10n/bl.dart';
 import 'package:funkinator/models/app_model.dart';
-import 'package:funkinator/screens/game.dart';
-import 'package:funkinator/screens/login.dart';
-import 'package:funkinator/screens/signup.dart';
+
+import 'package:funkinator/screens/login.screen.dart';
+import 'package:funkinator/screens/main.screen.dart';
+import 'package:funkinator/screens/signup.screen.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 class DemoApp extends StatelessWidget {
@@ -51,9 +52,8 @@ class MyApp extends StatelessWidget {
               return MaterialPageRoute(
                   settings: settings,
                   builder: (BuildContext context) =>
-                      appModel.user_name != null &&
-                              appModel.user_name.isNotEmpty
-                          ? Login_Screen()
+                      appModel.user_name.isNotEmpty
+                          ? Main_Screen()
                           : Login_Screen());
               break;
             case '/signUp':
@@ -65,9 +65,8 @@ class MyApp extends StatelessWidget {
               return MaterialPageRoute(
                   settings: settings,
                   builder: (BuildContext context) =>
-                  appModel.user_name != null &&
                       appModel.user_name.isNotEmpty
-                          ? Game_Screen()
+                          ? Main_Screen()
                           : Login_Screen());
               break;
           }
