@@ -30,8 +30,8 @@ class ManualLoginWidgetState extends State<ManualLoginWidget> {
     // TODO: implement initState
 
     super.initState();
-    mailController.text = 'aaaaa@aaa.com';
-    pwdController.text = '1q2w3e';
+    mailController.text = 'a@a.com';
+    pwdController.text = '1q2w3e1q2w3e';
   }
 
   @override
@@ -97,8 +97,9 @@ class ManualLoginWidgetState extends State<ManualLoginWidget> {
                                       .setData(map);
 
                                   appModel.updateUser(
-                                    email: mailController.text,
-                                  );
+                                      email: mailController.text,
+                                      first_name:
+                                          mailController.text.split('@')[0]);
 
                                   Navigator.pushNamed(context, '/');
                                 }

@@ -11,7 +11,7 @@ class Login_Screen extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      appBar: MyAppBarWidget(),
+//      appBar:MyAppBarWidget() ,
       body: LoginWidget(),
     );
   }

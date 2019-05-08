@@ -9,35 +9,30 @@ class LoginWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Center(
-        child: ListView(
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
-        Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: GoogleLoginWidget(),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: FacebookLoginWidget(),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 0,vertical: 8),
-              child: Text(
-                DemoLocalizations.of(context).or,
-                style: TextStyle(fontSize: 20.0),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: ManualLoginWidget(),
-            ), //
-          ],
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: GoogleLoginWidget(),
         ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: FacebookLoginWidget(),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 0,vertical: 8),
+          child: Text(
+            DemoLocalizations.of(context).or,
+            style: TextStyle(fontSize: 20.0),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: ManualLoginWidget(),
+        ), //
       ],
-    ));
+    );
   }
 }

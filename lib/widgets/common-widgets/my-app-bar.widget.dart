@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:funkinator/l10n/bl.dart';
 import 'package:funkinator/models/app_model.dart';
 import 'package:scoped_model/scoped_model.dart';
-class MyAppBarWidget extends AppBar{
+class MyAppBarWidget extends StatelessWidget implements PreferredSizeWidget{
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -28,5 +28,9 @@ class MyAppBarWidget extends AppBar{
       ),
     );
   }
+
+  @override
+  // TODO: implement preferredSize
+  Size get preferredSize => Size(10,40);
 
 }
