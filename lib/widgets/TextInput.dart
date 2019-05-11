@@ -21,9 +21,9 @@ class TextInput extends StatelessWidget {
       ),
       controller: ctrl,
       validator: (value) {
-        if (value.isEmpty) {
-          return errTxt;
-        }
+//        if (value.isEmpty) {
+//          return errTxt;
+//        }
       },
     );
   }

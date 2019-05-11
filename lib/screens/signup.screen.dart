@@ -16,7 +16,6 @@ class Signup_Screen extends StatelessWidget {
 
     // TODO: implement build
     return Scaffold(
-      appBar:  MyAppBarWidget(),
       body: SignUpWidget()
     );
   }

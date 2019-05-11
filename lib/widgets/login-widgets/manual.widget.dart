@@ -101,7 +101,7 @@ class ManualLoginWidgetState extends State<ManualLoginWidget> {
                                       first_name:
                                           mailController.text.split('@')[0]);
 
-                                  Navigator.pushNamed(context, '/');
+                                  Navigator.pushNamed(context, '/main');
                                 }
                               },
                               child: Text(DemoLocalizations.of(context).submit),

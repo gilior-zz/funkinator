@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:funkinator/l10n/bl.dart';
 import 'package:funkinator/models/app_model.dart';
-
 import 'package:funkinator/screens/login.screen.dart';
 import 'package:funkinator/screens/main.screen.dart';
 import 'package:funkinator/screens/signup.screen.dart';
@@ -49,25 +48,24 @@ class MyApp extends StatelessWidget {
         onGenerateRoute: (RouteSettings settings) {
           switch (settings.name) {
             case '/':
+            case '/main':
               return MaterialPageRoute(
                   settings: settings,
                   builder: (BuildContext context) =>
                       appModel.user_name.isNotEmpty
                           ? Main_Screen()
-                          : Login_Screen());
-              break;
+                          : Signup_Screen());
             case '/signUp':
               return MaterialPageRoute(
                   settings: settings,
                   builder: (BuildContext context) => Signup_Screen());
               break;
-            case '/game':
+            case '/login':
               return MaterialPageRoute(
                   settings: settings,
-                  builder: (BuildContext context) =>
-                      appModel.user_name.isNotEmpty
-                          ? Main_Screen()
-                          : Login_Screen());
+                  builder: (BuildContext context) => Login_Screen());
+              break;
+
               break;
           }
           debugPrint('$settings');
