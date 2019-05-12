@@ -11,6 +11,8 @@ class Login_Screen extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
+      resizeToAvoidBottomInset: false,
+      resizeToAvoidBottomPadding: false,
 //      appBar:MyAppBarWidget() ,
       body: LoginWidget(),
     );

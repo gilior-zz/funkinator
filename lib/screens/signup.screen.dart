@@ -16,6 +16,8 @@ class Signup_Screen extends StatelessWidget {
 
     // TODO: implement build
     return Scaffold(
+      resizeToAvoidBottomInset: false,
+      resizeToAvoidBottomPadding: false,
       body: SignUpWidget()
     );
   }

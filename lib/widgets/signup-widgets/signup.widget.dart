@@ -6,12 +6,21 @@ import 'package:funkinator/models/app_model.dart';
 import 'package:funkinator/widgets/signup-widgets/email.widget.dart';
 import 'package:scoped_model/scoped_model.dart';
 
-class SignUpWidget extends StatelessWidget {
+class SignUpWidget extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return SignUpWidgetState();
+  }
+}
+
+class SignUpWidgetState extends State<SignUpWidget> {
   TextEditingController mailController = TextEditingController();
   TextEditingController pwdController = TextEditingController();
   TextEditingController pwdController_2 = TextEditingController();
   final FirebaseAuth _auth = FirebaseAuth.instance;
   bool _autoValidate = false;
+
   @override
   Widget build(BuildContext context) {
     final _formKey = GlobalKey<FormState>();
@@ -20,7 +29,6 @@ class SignUpWidget extends StatelessWidget {
     return Container(
       child: LayoutBuilder(
           builder: (BuildContext context, BoxConstraints viewportConstraints) {
-
         return SingleChildScrollView(
             child: ConstrainedBox(
                 constraints: BoxConstraints(
@@ -62,6 +70,9 @@ class SignUpWidget extends StatelessWidget {
 
                                           // If the form is valid, we want to show a Snackbar
                                           _formKey.currentState.validate();
+                                          setState(() {
+                                            _autoValidate = true;
+                                          });
                                           return;
                                           debugPrint('foo');
 //                                        return;
@@ -115,15 +126,5 @@ class SignUpWidget extends StatelessWidget {
                 )));
       }),
     );
-  }
-
-  String validateEmail(String value) {
-    Pattern pattern =
-        r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
-    RegExp regex = new RegExp(pattern);
-    if (!regex.hasMatch(value))
-      return 'Enter Valid Email';
-    else
-      return null;
   }
 }

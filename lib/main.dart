@@ -54,7 +54,7 @@ class MyApp extends StatelessWidget {
                   builder: (BuildContext context) =>
                       appModel.user_name.isNotEmpty
                           ? Main_Screen()
-                          : Signup_Screen());
+                          : Login_Screen());
             case '/signUp':
               return MaterialPageRoute(
                   settings: settings,
