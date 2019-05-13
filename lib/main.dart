@@ -28,7 +28,8 @@ void main() {
   runApp(
     ScopedModel<AppModel>(
       model: appModel,
-      child: MyApp(),
+      child:MyApp() ,
+//      child:SafeArea(child: MyApp()) ,
     ),
   );
 }
@@ -54,7 +55,7 @@ class MyApp extends StatelessWidget {
                   builder: (BuildContext context) =>
                       appModel.user_name.isNotEmpty
                           ? Main_Screen()
-                          : Login_Screen());
+                          :SafeArea(child:  Login_Screen(),));
             case '/signUp':
               return MaterialPageRoute(
                   settings: settings,
