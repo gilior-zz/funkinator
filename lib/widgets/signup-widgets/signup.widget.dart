@@ -7,6 +7,7 @@ import 'package:funkinator/widgets/signup-widgets/email.widget.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 class SignUpWidget extends StatefulWidget {
+
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
@@ -20,10 +21,10 @@ class SignUpWidgetState extends State<SignUpWidget> {
   TextEditingController pwdController_2 = TextEditingController();
   final FirebaseAuth _auth = FirebaseAuth.instance;
   bool _autoValidate = false;
-
+  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    final _formKey = GlobalKey<FormState>();
+
     TextStyle textStyle = Theme.of(context).textTheme.title;
     // TODO: implement build
     return Container(
