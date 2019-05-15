@@ -51,7 +51,7 @@ class SignUpWidgetState extends State<SignUpWidget> {
                               Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Container(
-                                      height: 50,
+//                                      height: 50,
                                       child: Email_Widget(
                                         autoValidate: _autoValidate,
                                         mailController: mailController,

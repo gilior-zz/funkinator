@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:funkinator/l10n/bl.dart';
+
 import '../../models/const.dart';
+
 class Email_Widget extends StatelessWidget {
   TextEditingController mailController;
   bool autoValidate;
@@ -12,9 +14,11 @@ class Email_Widget extends StatelessWidget {
     TextStyle textStyle = Theme.of(context).textTheme.title;
     // TODO: implement build
     return TextFormField(
+
       keyboardType: TextInputType.emailAddress,
       decoration: InputDecoration(
-//                                        errorText: '',
+//        errorText: 'foo',
+          helperText: ' ',
         labelText: DemoLocalizations.of(context).email,
         labelStyle: textStyle,
         border: OutlineInputBorder(
