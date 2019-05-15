@@ -5,6 +5,7 @@ import 'package:funkinator/l10n/bl.dart';
 import 'package:funkinator/models/app_model.dart';
 import 'package:funkinator/widgets/signup-widgets/email.widget.dart';
 import 'package:scoped_model/scoped_model.dart';
+import '../../models/const.dart';
 
 class SignUpWidget extends StatefulWidget {
 
@@ -55,6 +56,9 @@ class SignUpWidgetState extends State<SignUpWidget> {
                                       child: Email_Widget(
                                         autoValidate: _autoValidate,
                                         mailController: mailController,
+                                        labelText: DemoLocalizations.of(context).email,
+                                        textInputType: TextInputType.emailAddress,
+                                        validator: validateEmail,
                                       ))),
                               Padding(
                                 padding: const EdgeInsets.all(8.0),

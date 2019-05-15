@@ -7,7 +7,13 @@ class Email_Widget extends StatelessWidget {
   TextEditingController mailController;
   bool autoValidate;
 
-  Email_Widget({this.mailController, this.autoValidate}) {}
+  String labelText;
+
+  Function validator;
+
+  TextInputType textInputType;
+
+  Email_Widget({this.mailController, this.autoValidate,this.labelText,this.textInputType,this.validator}) {}
 
   @override
   Widget build(BuildContext context) {
@@ -15,11 +21,13 @@ class Email_Widget extends StatelessWidget {
     // TODO: implement build
     return TextFormField(
 
-      keyboardType: TextInputType.emailAddress,
+      keyboardType: this.textInputType,
+//      keyboardType: TextInputType.emailAddress,
       decoration: InputDecoration(
 //        errorText: 'foo',
           helperText: ' ',
-        labelText: DemoLocalizations.of(context).email,
+        labelText: this.labelText,
+//        labelText: DemoLocalizations.of(context).email,
         labelStyle: textStyle,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(5.0),
@@ -27,7 +35,8 @@ class Email_Widget extends StatelessWidget {
       ),
       controller: mailController,
       autovalidate: autoValidate,
-      validator: validateEmail,
+//      validator: validateEmail,
+      validator: this.validator,
     );
   }
 
