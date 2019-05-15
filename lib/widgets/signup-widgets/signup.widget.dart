@@ -50,16 +50,32 @@ class SignUpWidgetState extends State<SignUpWidget> {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: <Widget>[
                               Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Container(
-//                                      height: 50,
+                                  padding: const EdgeInsets.all(8.0),                                //
                                       child: Email_Widget(
                                         autoValidate: _autoValidate,
                                         mailController: mailController,
                                         labelText: DemoLocalizations.of(context).email,
                                         textInputType: TextInputType.emailAddress,
                                         validator: validateEmail,
-                                      ))),
+                                      )),
+                              Padding(
+                                  padding: const EdgeInsets.all(8.0),                                //
+                                  child: Email_Widget(
+                                    autoValidate: _autoValidate,
+                                    mailController: pwdController,
+                                    labelText: DemoLocalizations.of(context).pwd,
+                                    textInputType: TextInputType.text
+
+                                  )),
+                              Padding(
+                                  padding: const EdgeInsets.all(8.0),                                //
+                                  child: Email_Widget(
+                                      autoValidate: _autoValidate,
+                                      mailController: pwdController_2,
+                                      labelText: DemoLocalizations.of(context).pwd_2,
+                                      textInputType: TextInputType.text
+
+                                  )),
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Flex(
