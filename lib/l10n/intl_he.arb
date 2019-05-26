@@ -72,13 +72,13 @@
     "type": "text",
     "placeholders": {}
   },
-  "email_in_use": "אימייל תפוס",
-  "@email_in_use": {
+  "ERROR_EMAIL_ALREADY_IN_USE": "אימייל תפוס",
+  "@ERROR_EMAIL_ALREADY_IN_USE": {
     "type": "text",
     "placeholders": {}
   },
-  "weak_password": "סיסמה חלשה",
-  "@weak_password": {
+  "ERROR_WEAK_PASSWORD": "סיסמה חלשה",
+  "@ERROR_WEAK_PASSWORD": {
     "type": "text",
     "placeholders": {}
   }
