@@ -7,3 +7,10 @@ String validateEmail(String value) {
   else
     return null;
 }
+
+String ValidateIsEmpty(String value) {
+  if (value.isEmpty) {
+    return '';
+  } else
+    return null;
+}

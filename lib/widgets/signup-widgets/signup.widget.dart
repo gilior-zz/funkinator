@@ -1,14 +1,15 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:funkinator/l10n/bl.dart';
 import 'package:funkinator/models/app_model.dart';
 import 'package:funkinator/widgets/signup-widgets/email.widget.dart';
 import 'package:scoped_model/scoped_model.dart';
+import 'package:flutter/services.dart';
+
+
 import '../../models/const.dart';
 
 class SignUpWidget extends StatefulWidget {
-
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
@@ -23,9 +24,9 @@ class SignUpWidgetState extends State<SignUpWidget> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   bool _autoValidate = false;
   final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
-
     TextStyle textStyle = Theme.of(context).textTheme.title;
     // TODO: implement build
     return Container(
@@ -50,31 +51,34 @@ class SignUpWidgetState extends State<SignUpWidget> {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: <Widget>[
                               Padding(
-                                  padding: const EdgeInsets.all(8.0),                                //
-                                      child: Email_Widget(
-                                        autoValidate: _autoValidate,
-                                        mailController: mailController,
-                                        labelText: DemoLocalizations.of(context).email,
-                                        textInputType: TextInputType.emailAddress,
-                                        validator: validateEmail,
-                                      )),
+                                  padding: const EdgeInsets.all(8.0), //
+                                  child: Email_Widget(
+                                    autoValidate: _autoValidate,
+                                    mailController: mailController,
+                                    labelText:
+                                        DemoLocalizations.of(context).email,
+                                    textInputType: TextInputType.emailAddress,
+                                    validator: validateEmail,
+                                  )),
                               Padding(
-                                  padding: const EdgeInsets.all(8.0),                                //
+                                  padding: const EdgeInsets.all(8.0), //
                                   child: Email_Widget(
                                     autoValidate: _autoValidate,
                                     mailController: pwdController,
-                                    labelText: DemoLocalizations.of(context).pwd,
-                                    textInputType: TextInputType.text
-
+                                    labelText:
+                                        DemoLocalizations.of(context).pwd,
+                                    textInputType: TextInputType.text,
+                                    validator: ValidateIsEmpty,
                                   )),
                               Padding(
-                                  padding: const EdgeInsets.all(8.0),                                //
+                                  padding: const EdgeInsets.all(8.0), //
                                   child: Email_Widget(
-                                      autoValidate: _autoValidate,
-                                      mailController: pwdController_2,
-                                      labelText: DemoLocalizations.of(context).pwd_2,
-                                      textInputType: TextInputType.text
-
+                                    autoValidate: _autoValidate,
+                                    mailController: pwdController_2,
+                                    labelText:
+                                        DemoLocalizations.of(context).pwd_2,
+                                    textInputType: TextInputType.text,
+                                    validator: ValidateIsEmpty,
                                   )),
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
@@ -86,49 +90,53 @@ class SignUpWidgetState extends State<SignUpWidget> {
                                         builder: (context, child, appModel) {
                                       return RaisedButton(
                                         onPressed: () async {
-                                          // Validate will return true if the form is valid, or false if
-                                          // the form is invalid.
-
-                                          // If the form is valid, we want to show a Snackbar
-                                          _formKey.currentState.validate();
                                           setState(() {
                                             _autoValidate = true;
                                           });
+                                          var isValid =
+                                              _formKey.currentState.validate();
+                                          if (isValid) {
+                                            try {
+                                              final FirebaseUser user = await _auth
+                                                  .createUserWithEmailAndPassword(
+                                                email: mailController.text,
+                                                password: pwdController.text,
+                                              );
+                                              debugPrint(user.displayName);
+                                            }on PlatformException catch (e) {
+                                              debugPrint(e.code);
+
+                                            }
+
+//                                            await _auth
+//                                                .signInWithEmailAndPassword(
+//                                              email: mailController.text,
+//                                              password: pwdController.text,
+//                                            );
+////                                            debugPrint(user.email);
+//                                            var map = Map<String, dynamic>();
+//
+//                                            map['origin'] = 'manual';
+//                                            map['email'] = mailController.text;
+//
+//                                            map['created'] =
+//                                                FieldValue.serverTimestamp();
+//
+//                                            Firestore.instance
+//                                                .collection('logins')
+//                                                .document()
+//                                                .setData(map);
+//
+//                                            appModel.updateUser(
+//                                                email: mailController.text,
+//                                                first_name: mailController.text
+//                                                    .split('@')[0]);
+//
+//                                            Navigator.pushNamed(
+//                                                context, '/main');
+                                          }
+
                                           return;
-                                          debugPrint('foo');
-//                                        return;
-                                          final FirebaseUser user = await _auth
-                                              .createUserWithEmailAndPassword(
-                                            email: mailController.text,
-                                            password: pwdController.text,
-                                          );
-                                          debugPrint(user.displayName);
-
-                                          await _auth
-                                              .signInWithEmailAndPassword(
-                                            email: mailController.text,
-                                            password: pwdController.text,
-                                          );
-                                          debugPrint(user.email);
-                                          var map = Map<String, dynamic>();
-
-                                          map['origin'] = 'manual';
-                                          map['email'] = mailController.text;
-
-                                          map['created'] =
-                                              FieldValue.serverTimestamp();
-
-                                          Firestore.instance
-                                              .collection('logins')
-                                              .document()
-                                              .setData(map);
-
-                                          appModel.updateUser(
-                                              email: mailController.text,
-                                              first_name: mailController.text
-                                                  .split('@')[0]);
-
-                                          Navigator.pushNamed(context, '/main');
                                         },
                                         child: Text(
                                             DemoLocalizations.of(context)

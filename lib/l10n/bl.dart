@@ -28,6 +28,14 @@ class DemoLocalizations {
         'pwd_2',
         name: 'pwd_2',
       );
+  get ERROR_EMAIL_ALREADY_IN_USE => Intl.message(
+    'email_in_use',
+    name: 'email_in_use',
+  );
+  get ERROR_WEAK_PASSWORD => Intl.message(
+    'weak_password',
+    name: 'weak_password',
+  );
 
   get guest => Intl.message(
         'guest',

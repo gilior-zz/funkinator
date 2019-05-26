@@ -51,25 +51,35 @@
   "@guest": {
     "type": "text",
     "placeholders": {}
-  }    ,
-      "create_training": "יצירת אימון",
-    "@create_training": {
-      "type": "text",
-      "placeholders": {}
-    } ,
-           "start_training": "התחלת אימון",
-         "@start_training": {
-           "type": "text",
-           "placeholders": {}
-         },
-                     "statistics": "סטטיסטיקות",
-                   "@statistics": {
-                     "type": "text",
-                     "placeholders": {}
-                   },
-                                         "manage_trainings": "ניהול אימונים",
-                                       "@manage_trainings": {
-                                         "type": "text",
-                                         "placeholders": {}
-                                       }
+  },
+  "create_training": "יצירת אימון",
+  "@create_training": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "start_training": "התחלת אימון",
+  "@start_training": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "statistics": "סטטיסטיקות",
+  "@statistics": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "manage_trainings": "ניהול אימונים",
+  "@manage_trainings": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "email_in_use": "אימייל תפוס",
+  "@email_in_use": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "weak_password": "סיסמה חלשה",
+  "@weak_password": {
+    "type": "text",
+    "placeholders": {}
+  }
 }
