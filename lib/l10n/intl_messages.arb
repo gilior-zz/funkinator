@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2019-05-26T07:59:38.231574",
+  "@@last_modified": "2019-05-26T12:56:42.549543",
   "email": "email",
   "@email": {
     "type": "text",
@@ -22,6 +22,16 @@
   },
   "pwd_2": "pwd_2",
   "@pwd_2": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "ERROR_EMAIL_ALREADY_IN_USE": "ERROR_EMAIL_ALREADY_IN_USE",
+  "@ERROR_EMAIL_ALREADY_IN_USE": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "ERROR_WEAK_PASSWORD": "ERROR_WEAK_PASSWORD",
+  "@ERROR_WEAK_PASSWORD": {
     "type": "text",
     "placeholders": {}
   },

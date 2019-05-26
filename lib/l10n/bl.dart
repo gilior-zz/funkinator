@@ -1,4 +1,4 @@
-//import 'package:funkinator/l10n/messages_all.dart';
+import 'package:funkinator/l10n/messages_all.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter/material.dart';
@@ -29,12 +29,12 @@ class DemoLocalizations {
         name: 'pwd_2',
       );
   get ERROR_EMAIL_ALREADY_IN_USE => Intl.message(
-    'email_in_use',
-    name: 'email_in_use',
+    'ERROR_EMAIL_ALREADY_IN_USE',
+    name: 'ERROR_EMAIL_ALREADY_IN_USE',
   );
   get ERROR_WEAK_PASSWORD => Intl.message(
-    'weak_password',
-    name: 'weak_password',
+    'ERROR_WEAK_PASSWORD',
+    name: 'ERROR_WEAK_PASSWORD',
   );
 
   get guest => Intl.message(
@@ -69,10 +69,10 @@ class DemoLocalizations {
         locale.countryCode.isEmpty ? locale.languageCode : locale.toString();
     final String localeName = Intl.canonicalizedLocale(name);
 
-//    return initializeMessages(localeName).then((_) {
-//      Intl.defaultLocale = localeName;
-//      return DemoLocalizations();
-//    });
+    return initializeMessages(localeName).then((_) {
+      Intl.defaultLocale = localeName;
+      return DemoLocalizations();
+    });
   }
 
   static DemoLocalizations of(BuildContext context) {
