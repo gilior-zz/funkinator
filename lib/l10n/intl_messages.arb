@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2019-05-26T12:56:42.549543",
+  "@@last_modified": "2019-05-31T18:48:37.075394",
   "email": "email",
   "@email": {
     "type": "text",
@@ -32,6 +32,16 @@
   },
   "ERROR_WEAK_PASSWORD": "ERROR_WEAK_PASSWORD",
   "@ERROR_WEAK_PASSWORD": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "ERROR_WRONG_PASSWORD": "ERROR_WRONG_PASSWORD",
+  "@ERROR_WRONG_PASSWORD": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "ERROR_USER_NOT_FOUND": "ERROR_USER_NOT_FOUND",
+  "@ERROR_USER_NOT_FOUND": {
     "type": "text",
     "placeholders": {}
   },

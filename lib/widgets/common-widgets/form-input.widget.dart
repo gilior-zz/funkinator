@@ -1,27 +1,26 @@
 import 'package:flutter/material.dart';
 
-class Form_Widget extends StatelessWidget {
-  TextEditingController textEditingController;
-  bool autoValidate;
-  Function errClearFunc;
-  String labelText;
+class Form_Input_Widget extends StatelessWidget {
+  TextEditingController textEditingController = null;
+  bool autoValidate = false;
+  Function errClearFunc = () {};
+  String labelText = null;
 
-  Function validator;
+  Function validator = () {};
 
-  TextInputType textInputType;
+  TextInputType textInputType = TextInputType.text;
 
-  String errorText;
+  String errorText = null;
 
-  Form_Widget({
-    this.textEditingController,
-    this.autoValidate,
-    this.labelText,
-    this.textInputType,
-    this.validator,
-    this.errorText,
-    this.errClearFunc
-  }) {
-    this.textEditingController.addListener(this.errClearFunc);
+  Form_Input_Widget(
+      {this.textEditingController,
+      this.autoValidate,
+      this.labelText,
+      this.textInputType,
+      this.validator,
+      this.errorText,
+      this.errClearFunc}) {
+      this.textEditingController.addListener(this.errClearFunc);
   }
 
   @override
@@ -30,12 +29,10 @@ class Form_Widget extends StatelessWidget {
     // TODO: implement build
     return TextFormField(
       keyboardType: this.textInputType,
-//      keyboardType: TextInputType.emailAddress,
       decoration: InputDecoration(
         errorText: this.errorText,
         helperText: ' ',
         labelText: this.labelText,
-//        labelText: DemoLocalizations.of(context).email,
         labelStyle: textStyle,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(5.0),
@@ -43,7 +40,6 @@ class Form_Widget extends StatelessWidget {
       ),
       controller: textEditingController,
       autovalidate: autoValidate,
-//      validator: validateEmail,
       validator: this.validator,
     );
   }

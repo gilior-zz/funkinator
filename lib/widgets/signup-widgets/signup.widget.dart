@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:funkinator/l10n/bl.dart';
 import 'package:funkinator/models/app_model.dart';
-import 'package:funkinator/widgets/signup-widgets/email.widget.dart';
+import 'package:funkinator/widgets/common-widgets/form-input.widget.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:flutter/services.dart';
 
@@ -64,8 +64,7 @@ class SignUpWidgetState extends State<SignUpWidget> {
                             children: <Widget>[
                               Padding(
                                   padding: const EdgeInsets.all(8.0), //
-                                  child: buildWidget(
-                                      context: context,
+                                  child: Form_Input_Widget(
                                       errClearFunc: this.clearEmlErr,
                                       errorText: this.emlErr,
                                       labelText:
@@ -76,8 +75,7 @@ class SignUpWidgetState extends State<SignUpWidget> {
                                       validator: validateEmail)),
                               Padding(
                                   padding: const EdgeInsets.all(8.0), //
-                                  child: buildWidget(
-                                      context: context,
+                                  child: Form_Input_Widget(
                                       errClearFunc: this.clearPwdErr,
                                       errorText: this.pwdErr,
                                       labelText:
@@ -87,8 +85,7 @@ class SignUpWidgetState extends State<SignUpWidget> {
                                       validator: ValidateIsEmpty)),
                               Padding(
                                   padding: const EdgeInsets.all(8.0), //
-                                  child: buildWidget(
-                                      context: context,
+                                  child: Form_Input_Widget(
                                       errClearFunc: this.clearPwdErr,
                                       errorText: this.pwdErr,
                                       labelText:
@@ -191,26 +188,6 @@ class SignUpWidgetState extends State<SignUpWidget> {
       }),
     );
   }
-
-  Form_Widget buildWidget(
-      {BuildContext context,
-      TextEditingController textEditingController,
-      String labelText,
-      TextInputType textInputType,
-      Function validator,
-      String errorText,
-      Function errClearFunc}) {
-    return Form_Widget(
-      autoValidate: _autoValidate,
-      textEditingController: textEditingController,
-      labelText: labelText,
-      textInputType: textInputType,
-      validator: validator,
-      errorText: errorText,
-      errClearFunc: errClearFunc,
-    );
-  }
-
   clearPwdErr() {
     if (this.pwdErr != null)
       setState(() {

@@ -36,6 +36,14 @@ class DemoLocalizations {
     'ERROR_WEAK_PASSWORD',
     name: 'ERROR_WEAK_PASSWORD',
   );
+  get ERROR_WRONG_PASSWORD => Intl.message(
+    'ERROR_WRONG_PASSWORD',
+    name: 'ERROR_WRONG_PASSWORD',
+  );
+  get ERROR_USER_NOT_FOUND => Intl.message(
+    'ERROR_USER_NOT_FOUND',
+    name: 'ERROR_USER_NOT_FOUND',
+  );
 
   get guest => Intl.message(
         'guest',

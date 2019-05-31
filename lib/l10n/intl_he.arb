@@ -81,5 +81,15 @@
   "@ERROR_WEAK_PASSWORD": {
     "type": "text",
     "placeholders": {}
+  },
+  "ERROR_USER_NOT_FOUND": "משמתש/ת אינו קיים/ת",
+  "@ERROR_USER_NOT_FOUND": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "ERROR_WRONG_PASSWORD": "סיסמה שגויה",
+  "@ERROR_WEAK_PASSWORD": {
+    "type": "text",
+    "placeholders": {}
   }
 }

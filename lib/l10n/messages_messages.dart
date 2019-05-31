@@ -23,7 +23,9 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
     "ERROR_EMAIL_ALREADY_IN_USE" : MessageLookupByLibrary.simpleMessage("ERROR_EMAIL_ALREADY_IN_USE"),
+    "ERROR_USER_NOT_FOUND" : MessageLookupByLibrary.simpleMessage("ERROR_USER_NOT_FOUND"),
     "ERROR_WEAK_PASSWORD" : MessageLookupByLibrary.simpleMessage("ERROR_WEAK_PASSWORD"),
+    "ERROR_WRONG_PASSWORD" : MessageLookupByLibrary.simpleMessage("ERROR_WRONG_PASSWORD"),
     "click_to_sign" : MessageLookupByLibrary.simpleMessage("click_to_sign"),
     "create_training" : MessageLookupByLibrary.simpleMessage("create_training"),
     "email" : MessageLookupByLibrary.simpleMessage("email"),
