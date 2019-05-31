@@ -202,12 +202,12 @@ class SignUpWidgetState extends State<SignUpWidget> {
       Function errClearFunc}) {
     return Form_Widget(
       autoValidate: _autoValidate,
-      textEditingController: mailController,
-      labelText: DemoLocalizations.of(context).email,
-      textInputType: TextInputType.emailAddress,
-      validator: validateEmail,
-      errorText: this.emlErr,
-      errClearFunc: this.clearEmlErr,
+      textEditingController: textEditingController,
+      labelText: labelText,
+      textInputType: textInputType,
+      validator: validator,
+      errorText: errorText,
+      errClearFunc: errClearFunc,
     );
   }
 
