@@ -14,3 +14,6 @@ String ValidateIsEmpty(String value) {
   } else
     return null;
 }
+
+const ERROR_EMAIL_ALREADY_IN_USE='ERROR_EMAIL_ALREADY_IN_USE';
+const ERROR_WEAK_PASSWORD='ERROR_WEAK_PASSWORD';

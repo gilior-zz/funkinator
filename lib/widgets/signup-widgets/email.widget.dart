@@ -1,21 +1,28 @@
 import 'package:flutter/material.dart';
 
-class Email_Widget extends StatelessWidget {
-  TextEditingController mailController;
+class Form_Widget extends StatelessWidget {
+  TextEditingController textEditingController;
   bool autoValidate;
-
+  Function errClearFunc;
   String labelText;
 
   Function validator;
 
   TextInputType textInputType;
 
-  Email_Widget(
-      {this.mailController,
-      this.autoValidate,
-      this.labelText,
-      this.textInputType,
-      this.validator}) {}
+  String errorText;
+
+  Form_Widget({
+    this.textEditingController,
+    this.autoValidate,
+    this.labelText,
+    this.textInputType,
+    this.validator,
+    this.errorText,
+    this.errClearFunc
+  }) {
+    this.textEditingController.addListener(this.errClearFunc);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +32,7 @@ class Email_Widget extends StatelessWidget {
       keyboardType: this.textInputType,
 //      keyboardType: TextInputType.emailAddress,
       decoration: InputDecoration(
-//        errorText: 'foo',
+        errorText: this.errorText,
         helperText: ' ',
         labelText: this.labelText,
 //        labelText: DemoLocalizations.of(context).email,
@@ -34,11 +41,10 @@ class Email_Widget extends StatelessWidget {
           borderRadius: BorderRadius.circular(5.0),
         ),
       ),
-      controller: mailController,
+      controller: textEditingController,
       autovalidate: autoValidate,
 //      validator: validateEmail,
       validator: this.validator,
     );
   }
-
 }
