@@ -41,7 +41,6 @@ class ManualLoginWidgetState extends State<ManualLoginWidget> {
 
   @override
   Widget build(BuildContext context) {
-    TextStyle textStyle = Theme.of(context).textTheme.title;
 
     return Column(
       children: <Widget>[
@@ -99,7 +98,7 @@ class ManualLoginWidgetState extends State<ManualLoginWidget> {
                                       email: mailController.text,
                                       password: pwdController.text,
                                     );
-                                    debugPrint(user.email);
+
                                     var map = Map<String, dynamic>();
 
                                     map['origin'] = 'manual';
@@ -120,7 +119,7 @@ class ManualLoginWidgetState extends State<ManualLoginWidget> {
 
                                     Navigator.pushNamed(context, '/main');
                                   } on PlatformException catch (e) {
-                                    debugPrint(e.toString());
+
                                     switch (e.code) {
                                       case ERROR_USER_NOT_FOUND:
                                         setState(() {
@@ -170,20 +169,6 @@ class ManualLoginWidgetState extends State<ManualLoginWidget> {
     Navigator.pop(context, true);
   }
 
-  // Update the description of Note object
-
-  // Save data to database
-  void _save() async {
-    moveToLastScreen();
-  }
-
-  void _showAlertDialog(String title, String message) {
-    AlertDialog alertDialog = AlertDialog(
-      title: Text('title'),
-      content: Text('message'),
-    );
-    showDialog(context: context, builder: (_) => alertDialog);
-  }
   clearPwdErr() {
     if (this.pwdErr != null)
       setState(() {
