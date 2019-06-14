@@ -28,8 +28,9 @@ class Create_Training_State extends State<Create_Training_Widget> {
                   child: Column(
                     children: <Widget>[
                       StreamBuilder<QuerySnapshot>(
-                        stream:
-                            Firestore.instance.collection('logins').snapshots(),
+                        stream: Firestore.instance
+                            .collection('devices')
+                            .snapshots(),
                         builder: (BuildContext context,
                             AsyncSnapshot<QuerySnapshot> snapshot) {
                           if (snapshot.hasError)
@@ -42,7 +43,8 @@ class Create_Training_State extends State<Create_Training_Widget> {
 //                              print(snapshot.connectionState.toString());
 //                              print( snapshot.data.documents);
                               if (!isChanged)
-                                _mySelection = snapshot.data.documents[0].documentID;
+                                _mySelection =
+                                    snapshot.data.documents[0].documentID;
                               return DropdownButtonFormField<String>(
                                 value: _mySelection,
                                 onChanged: (String newValue) {
@@ -56,7 +58,7 @@ class Create_Training_State extends State<Create_Training_Widget> {
                                     .map((DocumentSnapshot document) {
                                   return DropdownMenuItem<String>(
 //                                    key: Key(document.documentID),
-                                    child: Text(document.data['origin']),
+                                    child: Text(document.data['name']),
                                     value: document.documentID,
                                   );
                                 }).toList(),
