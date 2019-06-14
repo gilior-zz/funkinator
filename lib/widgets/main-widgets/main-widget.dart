@@ -18,14 +18,17 @@ class MainGridWidget extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: RaisedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/create_training');
+
+                  },
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
                   child: Text(DemoLocalizations.of(context).create_training)),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: RaisedButton(
-                  onPressed: () {},
+                  onPressed: () {Navigator.pushNamed(context, '/manage_trainings');},
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
 
                   child: Text(DemoLocalizations.of(context).manage_trainings)),
@@ -33,7 +36,7 @@ class MainGridWidget extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: RaisedButton(
-                  onPressed: () {},
+                  onPressed: () {Navigator.pushNamed(context, '/start_training');},
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
 
                   child: Text(DemoLocalizations.of(context).start_training)),
@@ -41,7 +44,7 @@ class MainGridWidget extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: RaisedButton(
-                  onPressed: () {},
+                  onPressed: () {Navigator.pushNamed(context, '/statistics');},
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
 
                   child: Text(DemoLocalizations.of(context).statistics)),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:funkinator/l10n/bl.dart';
 import 'package:funkinator/models/app_model.dart';
+import 'package:funkinator/screens/create-training.screen.dart';
 import 'package:funkinator/screens/login.screen.dart';
 import 'package:funkinator/screens/main.screen.dart';
 import 'package:funkinator/screens/signup.screen.dart';
@@ -57,7 +58,7 @@ class MyApp extends StatelessWidget {
                       appModel.user_name.isNotEmpty
                           ? Main_Screen()
                           : SafeArea(
-                              child: Login_Screen(),
+                              child: Main_Screen(),
                             ));
             case '/signUp':
               return MaterialPageRoute(
@@ -70,7 +71,11 @@ class MyApp extends StatelessWidget {
                   builder: (BuildContext context) => Login_Screen());
               break;
 
-              break;
+            case '/create_training':
+              return MaterialPageRoute(
+                  settings: settings,
+                  builder: (BuildContext context) =>
+                      SafeArea(child: Create_Training_Screen()));
           }
           debugPrint('$settings');
         },

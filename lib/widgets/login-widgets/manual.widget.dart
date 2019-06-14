@@ -4,7 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:funkinator/l10n/bl.dart';
 import 'package:funkinator/models/app_model.dart';
-import 'package:funkinator/widgets/TextInput.dart';
+
 import 'package:funkinator/widgets/common-widgets/form-input.widget.dart';
 import 'package:scoped_model/scoped_model.dart';
 import '../../models/const.dart';
@@ -36,7 +36,7 @@ class ManualLoginWidgetState extends State<ManualLoginWidget> {
 
     super.initState();
     mailController.text = 'a@a.com';
-    pwdController.text = '1q2w3e1q2w3e';
+    pwdController.text = '1q2w3e4r';
   }
 
   @override
