@@ -14,6 +14,7 @@ class Create_Training_State extends State<Create_Training_Widget> {
 
 //  DocumentSnapshot dropdownValue;
   var _mySelection;
+  bool isChanged = false;
 
   @override
   Widget build(BuildContext context) {
@@ -40,12 +41,13 @@ class Create_Training_State extends State<Create_Training_Widget> {
                             default:
 //                              print(snapshot.connectionState.toString());
 //                              print( snapshot.data.documents);
-
-//                              _mySelection = snapshot.data.documents[0];
+                              if (!isChanged)
+                                _mySelection = snapshot.data.documents[0].documentID;
                               return DropdownButtonFormField<String>(
                                 value: _mySelection,
                                 onChanged: (String newValue) {
                                   setState(() {
+                                    isChanged = true;
                                     print(newValue);
                                     _mySelection = newValue;
                                   });
