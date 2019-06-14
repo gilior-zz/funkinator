@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:funkinator/widgets/create-training/create-training.widget.dart';
+import 'package:funkinator/widgets/create-training/create-training.widget_2.dart';
 
 
 class Create_Training_Screen extends StatelessWidget {

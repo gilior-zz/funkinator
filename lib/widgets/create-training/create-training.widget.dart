@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+enum SingingCharacter { lafayette, jefferson }
 
 class Create_Training_Widget extends StatefulWidget {
   @override
@@ -11,6 +12,7 @@ class Create_Training_Widget extends StatefulWidget {
 
 class Create_Training_State extends State<Create_Training_Widget> {
   final _formKey = GlobalKey<FormState>();
+  SingingCharacter _character = SingingCharacter.lafayette;
 
 //  DocumentSnapshot dropdownValue;
   var _mySelection;
@@ -66,6 +68,18 @@ class Create_Training_State extends State<Create_Training_Widget> {
                           }
                         },
                       ),
+                      RadioListTile<SingingCharacter>(
+                        title: const Text('Lafayette'),
+                        value: SingingCharacter.lafayette,
+                        groupValue: _character,
+                        onChanged: (SingingCharacter value) { setState(() { _character = value; }); },
+                      ),
+                      RadioListTile<SingingCharacter>(
+                        title: const Text('Thomas Jefferson'),
+                        value: SingingCharacter.jefferson,
+                        groupValue: _character,
+                        onChanged: (SingingCharacter value) { setState(() { _character = value; }); },
+                      )
                     ],
                   ),
                 ))),
