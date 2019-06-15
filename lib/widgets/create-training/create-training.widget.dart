@@ -1,6 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:funkinator/l10n/bl.dart';
+import 'package:funkinator/widgets/common-widgets/form-input.widget.dart';
+
 import '../../models/const.dart';
+
 class Create_Training_Widget extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -12,7 +16,11 @@ class Create_Training_Widget extends StatefulWidget {
 class Create_Training_State extends State<Create_Training_Widget> {
   final _formKey = GlobalKey<FormState>();
   String _my_method = '';
-  String _my_device='';
+  String _my_device = '';
+  String timesErr = null;
+  bool _autoValidate = false;
+
+  TextEditingController timesController = TextEditingController();
 
   @override
   void initState() {
@@ -82,23 +90,32 @@ class Create_Training_State extends State<Create_Training_Widget> {
                 children: <Widget>[
                   Expanded(
                     child: Form_Input_Widget(
-                        errClearFunc: this.clearPwdErr,
-                        errorText: this.pwdErr,
-                        textEditingController: this.pwdController,
-                        textInputType: TextInputType.text,
-                        validator: ValidateIsEmpty),
+                        errClearFunc: this.clearTimesErr,
+                        errorText: this.timesErr,
+                        textEditingController: this.timesController,
+                        textInputType: TextInputType.number,
+                        validator: ValidateIsEmpty,
+                        autoValidate: this._autoValidate),
+
                   ),
                   Expanded(
-                    child: Text('Craft beautiful UIs', textAlign: TextAlign.center),
+                    child: Text(DemoLocalizations.of(context).times),
                   ),
-                  Expanded(
-                    child: FittedBox(
-                      fit: BoxFit.contain, // otherwise the logo will be tiny
-                      child: const FlutterLogo(),
-                    ),
-                  ),
+                  FloatingActionButton(
+                    child: Text('data'),
+                    onPressed: () {
+                      this._autoValidate=true;
+                    },
+                  )
                 ],
               )
             ]));
+  }
+
+  clearTimesErr() {
+    if (this.timesErr != null)
+      setState(() {
+        this.timesErr = null;
+      });
   }
 }
