@@ -96,17 +96,22 @@ class Create_Training_State extends State<Create_Training_Widget> {
                         textInputType: TextInputType.number,
                         validator: ValidateIsEmpty,
                         autoValidate: this._autoValidate),
-
                   ),
                   Expanded(
                     child: Text(DemoLocalizations.of(context).times),
                   ),
-                  FloatingActionButton(
-                    child: Text('data'),
-                    onPressed: () {
-                      this._autoValidate=true;
-                    },
-                  )
+                  Expanded(
+                    child: Form_Input_Widget(
+                        errClearFunc: this.clearTimesErr,
+                        errorText: this.timesErr,
+                        textEditingController: this.timesController,
+                        textInputType: TextInputType.number,
+                        validator: ValidateIsEmpty,
+                        autoValidate: this._autoValidate),
+                  ),
+                  Expanded(
+                    child: Text(DemoLocalizations.of(context).times),
+                  ),
                 ],
               )
             ]));
