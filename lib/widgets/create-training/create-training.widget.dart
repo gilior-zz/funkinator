@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-
+import '../../models/const.dart';
 class Create_Training_Widget extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -12,6 +12,7 @@ class Create_Training_Widget extends StatefulWidget {
 class Create_Training_State extends State<Create_Training_Widget> {
   final _formKey = GlobalKey<FormState>();
   String _my_method = '';
+  String _my_device='';
 
   @override
   void initState() {
@@ -31,21 +32,22 @@ class Create_Training_State extends State<Create_Training_Widget> {
     super.initState();
   }
 
-  String _my_device;
   bool isChanged = false;
   List<DocumentSnapshot> devices = [];
   List<DocumentSnapshot> methods = [];
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: <Widget>[
-      Card(
-          child: Form(
-              key: _formKey,
-              child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(children: <Widget>[
-                    DropdownButtonFormField<String>(
+    return Form(
+        key: _formKey,
+        child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Column(children: <Widget>[
+                SizedBox(
+                    width: 150,
+                    child: DropdownButtonFormField<String>(
                         value: _my_device,
                         onChanged: (String newValue) {
                           setState(() {
@@ -60,20 +62,43 @@ class Create_Training_State extends State<Create_Training_Widget> {
                             child: Text(document.data['name']),
                             value: document.documentID,
                           );
-                        }).toList()),
-                  ])))),
-      Column(
-          children: methods.map((DocumentSnapshot document) {
-        return RadioListTile<String>(
-            title: Text(document.data['name']),
-            value: document.documentID,
-            groupValue: _my_method,
-            onChanged: (String value) {
-              setState(() {
-                _my_method = value;
-              });
-            });
-      }).toList())
-    ]);
+                        }).toList())),
+              ]),
+              ListView(
+                  shrinkWrap: true,
+                  padding: EdgeInsets.all(0),
+                  children: methods.map((DocumentSnapshot document) {
+                    return RadioListTile<String>(
+                        title: Text(document.data['name']),
+                        value: document.documentID,
+                        groupValue: _my_method,
+                        onChanged: (String value) {
+                          setState(() {
+                            _my_method = value;
+                          });
+                        });
+                  }).toList()),
+              Row(
+                children: <Widget>[
+                  Expanded(
+                    child: Form_Input_Widget(
+                        errClearFunc: this.clearPwdErr,
+                        errorText: this.pwdErr,
+                        textEditingController: this.pwdController,
+                        textInputType: TextInputType.text,
+                        validator: ValidateIsEmpty),
+                  ),
+                  Expanded(
+                    child: Text('Craft beautiful UIs', textAlign: TextAlign.center),
+                  ),
+                  Expanded(
+                    child: FittedBox(
+                      fit: BoxFit.contain, // otherwise the logo will be tiny
+                      child: const FlutterLogo(),
+                    ),
+                  ),
+                ],
+              )
+            ]));
   }
 }

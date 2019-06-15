@@ -36,9 +36,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "or" : MessageLookupByLibrary.simpleMessage("or"),
     "pwd" : MessageLookupByLibrary.simpleMessage("pwd"),
     "pwd_2" : MessageLookupByLibrary.simpleMessage("pwd_2"),
+    "sets" : MessageLookupByLibrary.simpleMessage("sets"),
     "start_training" : MessageLookupByLibrary.simpleMessage("start_training"),
     "statistics" : MessageLookupByLibrary.simpleMessage("statistics"),
     "submit" : MessageLookupByLibrary.simpleMessage("submit"),
+    "times" : MessageLookupByLibrary.simpleMessage("times"),
     "title" : MessageLookupByLibrary.simpleMessage("Hello World")
   };
 }

@@ -91,5 +91,25 @@
   "@ERROR_WEAK_PASSWORD": {
     "type": "text",
     "placeholders": {}
+  },
+  "times": "פעמים",
+  "@times": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "sets": "חזרות",
+  "@sets": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "minutes": "דקות",
+  "@minutes": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "hours": "שעות",
+  "@hours": {
+    "type": "text",
+    "placeholders": {}
   }
 }

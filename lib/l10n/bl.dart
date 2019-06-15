@@ -1,7 +1,7 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:funkinator/l10n/messages_all.dart';
 import 'package:intl/intl.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter/material.dart';
 
 class DemoLocalizations {
   String get email => Intl.message(
@@ -12,6 +12,16 @@ class DemoLocalizations {
   String get pwd => Intl.message(
         'pwd',
         name: 'pwd',
+      );
+
+  String get times => Intl.message(
+        'times',
+        name: 'times',
+      );
+
+  String get sets => Intl.message(
+        'sets',
+        name: 'sets',
       );
 
   String get click_to_sign => Intl.message(
@@ -28,22 +38,26 @@ class DemoLocalizations {
         'pwd_2',
         name: 'pwd_2',
       );
+
   get ERROR_EMAIL_ALREADY_IN_USE => Intl.message(
-    'ERROR_EMAIL_ALREADY_IN_USE',
-    name: 'ERROR_EMAIL_ALREADY_IN_USE',
-  );
+        'ERROR_EMAIL_ALREADY_IN_USE',
+        name: 'ERROR_EMAIL_ALREADY_IN_USE',
+      );
+
   get ERROR_WEAK_PASSWORD => Intl.message(
-    'ERROR_WEAK_PASSWORD',
-    name: 'ERROR_WEAK_PASSWORD',
-  );
+        'ERROR_WEAK_PASSWORD',
+        name: 'ERROR_WEAK_PASSWORD',
+      );
+
   get ERROR_WRONG_PASSWORD => Intl.message(
-    'ERROR_WRONG_PASSWORD',
-    name: 'ERROR_WRONG_PASSWORD',
-  );
+        'ERROR_WRONG_PASSWORD',
+        name: 'ERROR_WRONG_PASSWORD',
+      );
+
   get ERROR_USER_NOT_FOUND => Intl.message(
-    'ERROR_USER_NOT_FOUND',
-    name: 'ERROR_USER_NOT_FOUND',
-  );
+        'ERROR_USER_NOT_FOUND',
+        name: 'ERROR_USER_NOT_FOUND',
+      );
 
   get guest => Intl.message(
         'guest',

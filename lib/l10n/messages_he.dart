@@ -36,9 +36,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "or" : MessageLookupByLibrary.simpleMessage("-----או-------"),
     "pwd" : MessageLookupByLibrary.simpleMessage("סיסמה"),
     "pwd_2" : MessageLookupByLibrary.simpleMessage("סיסמה שוב..."),
+    "sets" : MessageLookupByLibrary.simpleMessage("חזרות"),
     "start_training" : MessageLookupByLibrary.simpleMessage("התחלת אימון"),
     "statistics" : MessageLookupByLibrary.simpleMessage("סטטיסטיקות"),
     "submit" : MessageLookupByLibrary.simpleMessage("המשך/י"),
+    "times" : MessageLookupByLibrary.simpleMessage("פעמים"),
     "title" : MessageLookupByLibrary.simpleMessage("שלום עולם")
   };
 }
